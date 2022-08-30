@@ -1,0 +1,1482 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coveo.Connectors.Utilities.RestClient</name>
+    </assembly>
+    <members>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.HttpClientHandlerFactory">
+            <summary>
+            Default factory implementation to create the <see cref="T:System.Net.Http.HttpClientHandler"/> instance.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientHandlerFactory.Create(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientHandlerFactory.Create(System.Net.CookieContainer,System.Net.ICredentials,System.Net.IWebProxy)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientHandlerFactory.Create(System.Net.CookieContainer,System.Net.ICredentials,System.Net.Http.DelegatingHandler,System.String)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper">
+            <summary>
+            Wrapper of an <see cref="T:System.Net.Http.HttpClient" /> instance to execute HTTP requests.
+            </summary>
+            <remarks>
+            This wrapper allows to simplify the <see cref="T:System.Net.Http.HttpClient" /> configuration and
+            also wraps it into a class that implements an interface (for testing purposes).
+            </remarks>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.CookieContainer">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.Credentials">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.#ctor(System.Int32)">
+            <summary>
+            Constructor using the specified request timeout.
+            </summary>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Constructor using the specified request timeout and the boolean to indicate if required to use a cookie container.
+            </summary>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+            <param name="useCookieContainer">Whether to use a cookie container passed between each HTTP requests.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.#ctor(System.Int32,System.Boolean,System.Net.ICredentials)">
+            <summary>
+            Constructor using the specified request timeout, the boolean to indicate if required to use a cookie container
+            and a credential caches used for authentication.
+            </summary>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+            <param name="useCookieContainer">Whether to use a cookie container passed between each HTTP requests.</param>
+            <param name="credentials">The credentials to use when using authentication, can be null.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.#ctor(System.Int32,System.Boolean,System.Net.ICredentials,System.Net.Http.DelegatingHandler)">
+            <summary>
+            Constructor using the specified request timeout, the boolean to indicate if required to use a cookie container,
+            a credential caches used for authentication and the boolean to indicate if required to block unauthorized requests.
+            </summary>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+            <param name="useCookieContainer">Whether to use a cookie container passed between each HTTP requests.</param>
+            <param name="credentials">The credentials to use when using authentication, can be null.</param>
+            <param name="customDelegatingHandler">A custom delegating handler for the HTTP client.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.#ctor(System.Int32,System.Boolean,System.Net.ICredentials,System.Net.Http.DelegatingHandler,System.String)">
+            <summary>
+            Constructor using the specified request timeout, the boolean to indicate if required to use a cookie container,
+            a credential caches used for authentication, a boolean to indicate if required to block unauthorized requests
+            and an optional HTTP proxy.
+            </summary>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+            <param name="useCookieContainer">Whether to use a cookie container passed between each HTTP requests.</param>
+            <param name="credentials">The credentials to use when using authentication, can be null.</param>
+            <param name="customDelegatingHandler">A custom delegating handler for the HTTP client.</param>
+            <param name="proxy">An optional proxy to be used for HTTP requests.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.#ctor(System.Int32,Coveo.Connectors.Utilities.RestClient.Http.IHttpClientHandlerFactory,System.Boolean,System.Net.ICredentials,System.Net.Http.DelegatingHandler,System.String,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Constructor using the specified request timeout, the boolean to indicate if required to use a cookie container,
+            a credential caches used for authentication, a boolean to indicate if required to block unauthorized requests
+            and an optional HTTP proxy.
+            </summary>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+            <param name="clientHandlerFactory">The factory to create the <see cref="T:System.Net.Http.HttpClientHandler"/> instance.</param>
+            <param name="useCookieContainer">Whether to use a cookie container passed between each HTTP requests.</param>
+            <param name="credentials">The credentials to use when using authentication, can be null.</param>
+            <param name="customDelegatingHandler">A custom delegating handler for the HTTP client.</param>
+            <param name="proxy">An optional proxy to be used for HTTP requests.</param>
+            <param name="logger">The class logger.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.Dispose">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.Execute(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.Execute(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.TimeSpan,System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.ExecuteAsync(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.ExecuteAsync(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.TimeSpan,System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpClientWrapper.CreateHttpNegotiateClient(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Creates an <see cref="T:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient" /> configured to negotiate with the service to determine the authentication
+            scheme. This client will use Kerberos if the service is configured for it, otherwise, it will fallback to NTLM.
+            </summary>
+            <param name="url">The service URL to authenticate.</param>
+            <param name="domain">The domain of the user used for authentication.</param>
+            <param name="username">The username used for authentication.</param>
+            <param name="password">The password used for authentication.</param>
+            <param name="timeout">The number of seconds to wait before the request times out.</param>
+            <param name="servicePrincipalNames">
+            The service principal names (SPN) of the Confluence service.
+            SPNs are used by Kerberos authentication to associate a service instance with a service logon account.
+            </param>
+            <returns>
+            An <see cref="T:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient" /> configured to negotiate the authentication scheme to use between Kerberos and NTLM.
+            </returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.HttpHeaderNames">
+            <summary>
+            HTTP known header names.
+            </summary>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.HttpStatusCodeExtension">
+            <summary>
+            Extension methods of an <see cref="T:System.Net.HttpStatusCode" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpStatusCodeExtension.IsRedirectionStatus(System.Net.HttpStatusCode)">
+            <summary>
+            Is the given <see cref="T:System.Net.HttpStatusCode" /> consider as a redirect status code.
+            </summary>
+            <param name="statusCode">The status code to analyze.</param>
+            <returns>True if a redirection status code, false otherwise.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.HttpStreamExtensions">
+            <summary>
+            Extension methods of an <see cref="T:System.IO.Stream" /> to optimize the deserialization from Json object to a given type T.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpStreamExtensions.ReadAndDeserializeFromJsonAsync``1(System.IO.Stream)">
+            <summary>
+            Read a Json stream and convert the result to the type T.
+            </summary>
+            <typeparam name="T">The type of the content to parse.</typeparam>
+            <param name="stream">The stream payload content.</param>
+            <returns>The new object created from the JSON value.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.HttpStreamExtensions.ReadAndDeserializeFromJsonAsync``1(System.IO.Stream,System.Text.Encoding,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Read a Json stream and convert the result to the type T.
+            </summary>
+            <typeparam name="T">The type of the content to parse.</typeparam>
+            <param name="stream">The stream payload content.</param>
+            <param name="encoding">The encoding to use.</param>
+            <param name="detectEncodingFromByteOrderMarks">True to look for byte order marks at the beginning of the file.</param>
+            <param name="bufferSize">Read buffer size in bytes.</param>
+            <param name="leaveOpen">Leave the stream open or not.</param>
+            <returns>The new object created from the JSON value.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient">
+            <summary>
+            Defines a generic HTTP client for executing requests and receiving responses.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient.CookieContainer">
+            <summary>
+            The cookie container used to store server cookies by the HTTP client handler.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient.Credentials">
+            <summary>
+            The authentication information used by the HTTP client handler.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient.Execute(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">
+            <summary>
+            Executes an HTTP request with an HTTP completion option and cancellation token.
+            </summary>
+            <param name="httpRequestMessage">The HTTP request message to execute.</param>
+            <param name="sanitizedRequestUri">The sanitized URI from the HTTP request.</param>
+            <param name="httpCompletionOption">
+            An HTTP completion option value that indicates when the operation should be
+            considered completed.
+            </param>
+            <param name="cancellationToken">A cancellation token that can be used to receive notice of cancellation.</param>
+            <returns>The HTTP response message of the request.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient.Execute(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Executes an HTTP request with an HTTP completion option and cancellation token with the specified timeout.
+            </summary>
+            <param name="httpRequestMessage">The HTTP request message to execute.</param>
+            <param name="sanitizedRequestUri">The sanitized URI from the HTTP request.</param>
+            <param name="httpCompletionOption">
+            An HTTP completion option value that indicates when the operation should be
+            considered completed.
+            </param>
+            <param name="timeout">The request timeout.</param>
+            <param name="cancellationToken">A cancellation token that can be used to receive notice of cancellation.</param>
+            <returns>The HTTP response message of the request.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient.ExecuteAsync(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.Threading.CancellationToken)">
+            <summary>
+            Executes async an HTTP request with an HTTP completion option and cancellation token.
+            </summary>
+            <param name="httpRequestMessage">The HTTP request message to execute.</param>
+            <param name="sanitizedRequestUri">The sanitized URI from the HTTP request.</param>
+            <param name="httpCompletionOption">
+            An HTTP completion option value that indicates when the operation should be
+            considered completed.
+            </param>
+            <param name="cancellationToken">A cancellation token that can be used to receive notice of cancellation.</param>
+            <returns>The HTTP response message of the request.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClient.ExecuteAsync(System.Net.Http.HttpRequestMessage,System.Uri,System.Net.Http.HttpCompletionOption,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Executes an async HTTP request with an HTTP completion option and cancellation token with the specified timeout.
+            </summary>
+            <param name="httpRequestMessage">The HTTP request message to execute.</param>
+            <param name="sanitizedRequestUri">The sanitized URI from the HTTP request.</param>
+            <param name="httpCompletionOption">
+            An HTTP completion option value that indicates when the operation should be
+            considered completed.
+            </param>
+            <param name="timeout">The request timeout.</param>
+            <param name="cancellationToken">A cancellation token that can be used to receive notice of cancellation.</param>
+            <returns>The HTTP response message of the request.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.IHttpClientHandlerFactory">
+            <summary>
+            The factory to create the <see cref="T:System.Net.Http.HttpClientHandler"/> instance.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClientHandlerFactory.Create(System.String)">
+            <summary>
+            Create a new <see cref="T:System.Net.Http.HttpClientHandler"/> instance.
+            </summary>
+            <param name="httpProxy">The proxy, if one is available.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClientHandlerFactory.Create(System.Net.CookieContainer,System.Net.ICredentials,System.Net.IWebProxy)">
+            <summary>
+            Create a new <see cref="T:System.Net.Http.HttpClientHandler"/> instance.
+            </summary>
+            <param name="cookieContainer">The cookie container containing the cookies obtained while executing web requests. Can be null.</param>
+            <param name="credentials">The credentials to use when authenticating to the service. Can be null.</param>
+            <param name="proxy">The proxy, if one is available.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.IHttpClientHandlerFactory.Create(System.Net.CookieContainer,System.Net.ICredentials,System.Net.Http.DelegatingHandler,System.String)">
+            <summary>
+            Create a new <see cref="T:System.Net.Http.HttpClientHandler"/> instance.
+            </summary>
+            <param name="cookieContainer">The cookie container containing the cookies obtained while executing web requests. Can be null.</param>
+            <param name="credentials">The credentials to use when authenticating to the service. Can be null.</param>
+            <param name="customDelegatingHandler">The.</param>
+            <param name="proxy">The proxy, if one is available.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes">
+            <summary>
+            Media-types as defined in the RFC 2616.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes.TextJsonMediaType">
+            <summary>
+            Gets a <see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue" /> instance representing <c>text/json</c>.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes.TextXmlMediaType">
+            <summary>
+            Gets a <see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue" /> instance representing <c>text/xml</c>.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes.ApplicationJsonMediaType">
+            <summary>
+            Gets a <see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue" /> instance representing <c>application/json</c>.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes.ApplicationOctetStreamMediaType">
+            <summary>
+            Gets a <see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue" /> instance representing <c>application/octet-stream</c>.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes.ApplicationFormUrlEncodedMediaType">
+            <summary>
+            Gets a <see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue" /> instance representing <c>application/x-www-form-urlencoded</c>.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Http.MediaTypes.ApplicationXmlMediaType">
+            <summary>
+            Gets a <see cref="T:System.Net.Http.Headers.MediaTypeHeaderValue" /> instance representing <c>application/xml</c>.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.WebProxyUtils.ExtractProxyFromUrl(System.String,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Creates a <see cref="T:System.Net.WebProxy" /> from the given proxy address.
+            </summary>
+            <param name="proxyAddress">The proxy address.</param>
+            <param name="logger">A logger instance. If none provided the static class logger will be used.</param>
+            <returns>A <see cref="T:System.Net.WebProxy" />.</returns>
+            <remarks>
+            Credentials are used when successfully parsed, unlike the default constructor.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Http.WebProxyUtils.SanitizeProxyUri(System.String)">
+            <summary>
+            Sanitize a proxy URI by removing the username and password from it.
+            </summary>
+            <param name="uriToSanitize">The proxy address.</param>
+            <returns>The URI sanitized.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy">
+            <summary>
+            Defines the default retry strategy when a REST request fails.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.DefaultRecoverableWebExceptionStatus">
+            <summary>
+            Default recoverable <see cref="T:System.Net.WebExceptionStatus" />.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.DefaultRecoverableHttpStatusCodes">
+            <summary>
+            Default recoverable <see cref="T:System.Net.HttpStatusCode" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.#ctor(Coveo.Connectors.Utilities.Logging.ILogger,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger">The class logger instance.</param>
+            <param name="platformLogger">The platform logger instance.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.#ctor(System.Action)">
+            <summary>
+            Constructor with refresh token action.
+            </summary>
+            <param name="refreshTokensAction">Refresh token action for HTTP errors with code 'Unauthorized'.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.#ctor(System.Collections.Generic.ISet{System.Net.WebExceptionStatus},System.Collections.Generic.ISet{System.Net.HttpStatusCode})">
+            <summary>
+            Constructor that initializes the retry strategy from the a list of recoverable
+            <see cref="T:System.Net.WebExceptionStatus" /> and <see cref="T:System.Net.HttpStatusCode" />.
+            </summary>
+            <param name="recoverableWebExceptionStatus">The recoverable <see cref="T:System.Net.WebExceptionStatus" />.</param>
+            <param name="recoverableHttpStatusCodes">The recoverable <see cref="T:System.Net.HttpStatusCode" />.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.#ctor(System.Int32)">
+            <summary>
+            Constructor with the retry-after wait time cushion.
+            </summary>
+            <param name="retryWaitTimeCushion">The wait time cushion that will be added to the retry-after header value.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.IsRecoverableRequest(System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.DefaultRestRetryStrategy.RecoverRequest(System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestBuilder">
+            <summary>
+            Utilities for the HttpRequestManager.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestBuilder.Build(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Build and <see cref="T:System.Net.Http.HttpRequestMessage"/> from a <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest"/>
+            </summary>
+            <param name="request">The request definition to build an HTTP request from.</param>
+            <param name="logger">The class logger.</param>
+            <returns>The <see cref="T:System.Net.Http.HttpRequestMessage"/> instance.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager">
+            <summary>
+            HTTP requests manager to execute REST Api calls.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.HttpClient">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.#ctor(Coveo.Connectors.Utilities.RestClient.Http.IHttpClient,Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParser)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="httpClient">The HTTP client for executing requests and receiving responses.</param>
+            <param name="responseParser">The response parser to use.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.#ctor(Coveo.Connectors.Utilities.RestClient.Http.IHttpClient,Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParser,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="httpClient">The HTTP client for executing requests and receiving responses.</param>
+            <param name="responseParser">The response parser to use.</param>
+            <param name="logger">Class logger.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.#ctor(Coveo.Connectors.Utilities.RestClient.Http.IHttpClient,Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParserAsync)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="httpClient">The HTTP client for executing requests and receiving responses.</param>
+            <param name="responseParser">The response parser to use.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.#ctor(Coveo.Connectors.Utilities.RestClient.Http.IHttpClient,Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParserAsync,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="httpClient">The HTTP client for executing requests and receiving responses.</param>
+            <param name="responseParser">The response parser to use.</param>
+            <param name="logger">Class logger.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.Dispose">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager.Execute``2(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.IHttpRequestManager">
+            <summary>
+            Defines a generic manager for executing REST requests.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IHttpRequestManager.HttpClient">
+            <summary>
+            Returns Coveo's HttpClient.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IHttpRequestManager.Execute``2(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.Threading.CancellationToken)">
+            <summary>
+            Executes the <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> and returns the corresponding <see cref="T:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2" />.
+            It is the caller responsibility to close the stream if T was type of <see cref="T:System.IO.Stream" />.
+            </summary>
+            <typeparam name="T">The type of the expected response.</typeparam>
+            <typeparam name="TE">The type of the error when the request fails.</typeparam>
+            <param name="request">The REST request to execute.</param>
+            <param name="cancellationToken">The cancellation token used to propagate the need to abort any current request.</param>
+            <returns>The response of the executed REST request.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IHttpRequestManager.ExecuteAsync``2(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.Threading.CancellationToken)">
+            <summary>
+            Executes the <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> async and returns the corresponding <see cref="T:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2" />.
+            It is the caller responsibility to close the stream if T was type of <see cref="T:System.IO.Stream" />.
+            </summary>
+            <typeparam name="T">The type of the expected response.</typeparam>
+            <typeparam name="TE">The type of the error when the request fails.</typeparam>
+            <param name="request">The REST request to execute.</param>
+            <param name="cancellationToken">The cancellation token used to propagate the need to abort any current request.</param>
+            <returns>The response of the executed REST request.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.IHttpWebRequestFactory">
+            <summary>
+            Interface for the HttpWebRequestFactory.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IHttpWebRequestFactory.CreateHttpWebRequest(System.String)">
+            <summary>
+            Create a HttpWebRequest.
+            </summary>
+            <param name="uri">The uri to create the HttpWebRequest from.</param>
+            <returns>The HttpWebRequest created.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.InvalidHttpRequestHeaderException">
+            <summary>
+            Exception thrown when <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.HttpRequestManager" /> fails to add an HTTP header to a request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.InvalidHttpRequestHeaderException.HeaderName">
+            <summary>
+            Gets the name of the header that caused the exception.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.InvalidHttpRequestHeaderException.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="headerName">The name of the header that caused the exception.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.InvalidHttpRequestHeaderException.#ctor(System.String,System.Exception,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
+            <param name="headerName">The name of the header that caused the exception.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.InvalidHttpRequestHeaderException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer">
+            <summary>
+            Executes a request and defines a retry strategy if the request fails.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer.Execute(System.Action)">
+            <summary>
+            Execute a request with a retry strategy (if necessary).
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer.Execute``1(System.Func{``0})">
+            <summary>
+            Execute a request with a retry strategy (if necessary).
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <returns>The result of the request.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer.Execute(System.Action,System.Threading.CancellationToken)">
+            <summary>
+            Execute a request with a retry strategy (if necessary) using a cancellation token.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token to cancel the request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer.Execute``1(System.Func{``0},System.Threading.CancellationToken)">
+            <summary>
+            Execute a request with a retry strategy (if necessary) using a cancellation token.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token to cancel the request.</param>
+            <returns>The result of the request.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer.ExecuteAsync(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            Execute an async request with a retry strategy (if necessary) using a cancellation token.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token to cancel the request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRequestRetryer.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <summary>
+            Execute an async request with a retry strategy (if necessary) using a cancellation token.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="cancellationToken">The cancellation token to cancel the request.</param>
+            <returns>The result of the request.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest">
+            <summary>
+            Defines a generic REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Host">
+            <summary>
+            Host URI the REST endpoint of the request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.RequestPath">
+            <summary>
+            The complete path of the REST request without the query string.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.RequestUri">
+            <summary>
+            Absolute URI of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.SanitizedRequestUri">
+            <summary>
+            Absolute URI of the REST request without sensitive parameters.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.RequestAttempt">
+            <summary>
+            Number of request attempt.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Headers">
+            <summary>
+            HTTP headers of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Parameters">
+            <summary>
+            Parameters of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.SanitizedParameters">
+            <summary>
+            Sanitized parameters of the REST request. Used to properly log <see cref="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.RequestUri" /> without sensitive value.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.PayloadParameters">
+            <summary>
+            Payload parameters of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.PayloadStreamContent">
+            <summary>
+            Payload stream content of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.PayloadStringContent">
+            <summary>
+            Payload string content of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.PayloadMultiPartFormDataContent">
+            <summary>
+            Multipart form data content of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.PayloadContentType">
+            <summary>
+            Content-Type of the specified payload content.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Method">
+            <summary>
+            HTTP method of the REST request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Timeout">
+            <summary>
+            The specific timespan to wait before the request times out.
+            If not specified, the default timeout will be used.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.GetQueryString">
+            <summary>
+            Gets the query string included in the request URI.
+            </summary>
+            <returns>The query string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.GetSanitizedQueryString">
+            <summary>
+            Gets the sanitized query string included in the request URI.
+            </summary>
+            <returns>The sanitized query string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.HasPayload">
+            <summary>
+            Whether the request has a specified payload.
+            </summary>
+            <returns><c>true</c> if the request has a specified payload, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.GetIdentifier">
+            <summary>
+            Get a string ID uniquely representing this request.
+            </summary>
+            <returns>The string ID uniquely representing this request.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy">
+            <summary>
+            Defines a retry strategy used to recover a failed REST request.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy.IsRecoverableRequest(System.Exception)">
+            <summary>
+            Checks whether the failed request is recoverable or not.
+            </summary>
+            <param name="occurredException">The occurred exception to check.</param>
+            <returns><c>true</c> if the occurred exception is recoverable; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy.RecoverRequest(System.Exception)">
+            <summary>
+            Tries to recover a failed request by checking the occurred exception.
+            </summary>
+            <param name="exception">The occurred exception to check.</param>
+            <returns><c>true</c> if the occurred exception was successfully recovered; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream">
+            <summary>
+            A generic <see cref="T:System.IO.Stream" /> wrapper that will not close or dispose the inner wrapped stream.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.CanRead">
+            <inheritdoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.CanSeek">
+            <inheritdoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.CanWrite">
+            <inheritdoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Length">
+            <inheritdoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Position">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.#ctor(System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Flush">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.SetLength(System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.OwnedStream.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer">
+            <summary>
+            Executes the API request and uses a retry strategy in case of a failed request.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.#ctor(System.Int32,Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy,System.Threading.CancellationToken)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="numberOfRetries">The maximum number of retries executed for a failed request.</param>
+            <param name="retryStrategy">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy" /> used when recovering requests.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used to cancel any operation.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.#ctor(System.Int32,System.Int32,System.Int32,Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy,System.Threading.CancellationToken)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="numberOfRetries">The maximum number of retries executed for a failed request.</param>
+            <param name="initialWaitingIntervalMs">The initial waiting interval in milliseconds.</param>
+            <param name="maxIntervalMs">The maximum of the interval to add to the computed waiting time in milliseconds.</param>
+            <param name="retryStrategy">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy" /> used when recovering requests.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used to cancel any operation.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy,System.Threading.CancellationToken)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="numberOfRetries">The maximum number of retries executed for a failed request.</param>
+            <param name="initialWaitingIntervalMs">The initial waiting interval in milliseconds.</param>
+            <param name="maxIntervalMs">The maximum of the interval to add to the computed waiting time in milliseconds.</param>
+            <param name="maxBackoffWaitingTimeMs">The maximum backoff waiting time in milliseconds.</param>
+            <param name="retryStrategy">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRetryStrategy" /> used when recovering requests.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" /> used to cancel any operation.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.Execute(System.Action)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.Execute``1(System.Func{``0})">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.Execute(System.Action,System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.Execute``1(System.Func{``0},System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.ExecuteAsync(System.Func{System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryer.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Threading.CancellationToken)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner">
+             <summary>
+             A simple way to handle a failed request by retrying it N times.
+             </summary>
+             <example>
+             This example shows how to create a simple executioner that reconnect to the service
+             if a request generates a CredentialsException.
+            
+             var executioner = new RequestRetryExecutioner(error => error is CredentialsException,
+             error, data => Reconnect(),
+             CancellationToken.None);
+            
+             executioner.Execute(() => GetItemFromService(id));
+             </example>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.MaxRetryCount">
+            <summary>
+            Maximum number of retries.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.IsRecoverableRequestFunction">
+            <summary>
+            The function to determine if a request is recoverable.
+            </summary>
+            <param>The raised exception of the request.</param>
+            <returns>True if the request is recoverable, false otherwise.</returns>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.RecoverFunction">
+             <summary>
+             The function to recover the failed request.
+             </summary>
+             <param>The raised exception of the request.</param>
+             <param>A dictionary of objects to help recover the request.</param>
+             <returns>True if the request is recovered, false otherwise.</returns>
+             <remarks>
+             The dictionary of objects can be passed to
+             <see cref="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute(System.Action,System.Collections.Generic.IDictionary{System.String,System.Object})" />.
+            
+             When the recovery succeeds (i.e. this method returns true), the request
+             is re-executed without delay (i.e. without executing <see cref="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.WaitingFunction" />).
+             </remarks>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.CalculateWaitingTimeFunction">
+            <summary>
+            The function to calculate the ms to wait for the retry X.
+            </summary>
+            <param>The current retry count.</param>
+            <returns>Time to wait in ms.</returns>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.WaitingFunction">
+            <summary>
+            The function that perform the waiting.
+            </summary>
+            <param>Time to wait in ms.</param>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.CancellationToken">
+            <summary>
+            The token to cancel any retry operation being executed.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.#ctor(System.Threading.CancellationToken)">
+            <summary>
+            Constructs a retry using the exponential backoff strategy where every request is recoverable,
+            without particular process to recover.
+            </summary>
+            <param name="cancellationToken">The token to cancel any retry operation being executed.</param>
+            <remarks>
+            Exponential backoff is a standard error handling strategy for network applications in which the client
+            periodically retries a failed request over an increasing amount of time.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.#ctor(System.Func{System.Exception,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Constructs a retry using the exponential backoff strategy where some requests are recoverable,
+            without particular process to recover.
+            </summary>
+            <param name="recoverableRequestFunction">The function to determine if a request is recoverable.</param>
+            <param name="cancellationToken">The token to cancel any retry operation being executed.</param>
+            <remarks>
+            Exponential backoff is a standard error handling strategy for network applications in which the client
+            periodically retries a failed request over an increasing amount of time.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.#ctor(System.Func{System.Exception,System.Boolean},System.Func{System.Exception,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Constructs a retry using the exponential backoff strategy.
+            </summary>
+            <param name="recoverableRequestFunction">The function to determine if a request is recoverable.</param>
+            <param name="recoverFunction">The function to recover the failed request.</param>
+            <param name="cancellationToken">The token to cancel any retry operation being executed.</param>
+            <remarks>
+            Exponential backoff is a standard error handling strategy for network applications in which the client
+            periodically retries a failed request over an increasing amount of time.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.#ctor(System.Func{System.Exception,System.Boolean},System.Func{System.Exception,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean},Coveo.Connectors.Utilities.Logging.ILogger,System.Threading.CancellationToken)">
+            <summary>
+            Constructs a retry using the exponential backoff strategy.
+            </summary>
+            <param name="recoverableRequestFunction">The function to determine if a request is recoverable.</param>
+            <param name="recoverFunction">The function to recover the failed request.</param>
+            <param name="logger">The logger.</param>
+            <param name="cancellationToken">The token to cancel any retry operation being executed.</param>
+            <remarks>
+            Exponential backoff is a standard error handling strategy for network applications in which the client
+            periodically retries a failed request over an increasing amount of time.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.#ctor(System.Int32,System.Func{System.Exception,System.Boolean},System.Func{System.Exception,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean},System.Func{System.Int32,System.Int32},System.Action{System.Int32},System.Threading.CancellationToken)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="maxRetryCount">The maximum number of retries.</param>
+            <param name="recoverableRequestFunction">The function to determine if a request is recoverable.</param>
+            <param name="recoverFunction">The function to recover the failed request.</param>
+            <param name="calculateWaitingTimeFunction">The function to calculate the ms to wait for the retry X.</param>
+            <param name="waitingFunction">The function that perform the waiting.</param>
+            <param name="cancellationToken">The token to cancel any retry operation being executed.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.#ctor(System.Int32,System.Func{System.Exception,System.Boolean},System.Func{System.Exception,System.Collections.Generic.IDictionary{System.String,System.Object},System.Boolean},System.Func{System.Int32,System.Int32},System.Action{System.Int32},Coveo.Connectors.Utilities.Logging.ILogger,System.Threading.CancellationToken)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="maxRetryCount">The maximum number of retries.</param>
+            <param name="recoverableRequestFunction">The function to determine if a request is recoverable.</param>
+            <param name="recoverFunction">The function to recover the failed request.</param>
+            <param name="calculateWaitingTimeFunction">The function to calculate the ms to wait for the retry X.</param>
+            <param name="waitingFunction">The function that perform the waiting.</param>
+            <param name="logger">The logger.</param>
+            <param name="cancellationToken">The token to cancel any retry operation being executed.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute(System.Action)">
+            <summary>
+            Execute a request that returns nothing, without specifying an identifier and recover parameters.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.ExecuteAsync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Execute a request that returns nothing, without specifying an identifier and recover parameters.
+            </summary>
+            <param name="request">The request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute(System.Action,System.Action)">
+            <summary>
+            Execute a request that returns nothing, without specifying an identifier and recover parameters.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute``1(System.Func{``0})">
+            <summary>
+            Execute a request, without specifying an identifier and recover parameters.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Execute a request, without specifying an identifier and recover parameters.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute``1(System.Func{``0},System.Action)">
+            <summary>
+            Execute a request, without specifying an identifier and recover parameters.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Action)">
+            <summary>
+            Execute a request, without specifying an identifier and recover parameters.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute(System.Action,System.String)">
+            <summary>
+            Execute a request that returns nothing, without specifying recover parameters.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="identifier">Unique identifier for the request when comes the time to log errors.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute``1(System.Func{``0},System.String)">
+            <summary>
+            Execute a request, without specifying recover parameters.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="identifier">Unique identifier for the request when comes the time to log errors.</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute(System.Action,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Execute a request that returns nothing, without specifying an identifier.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="recoverParameters">Useful parameters to recover errors.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute``1(System.Func{``0},System.Collections.Generic.IDictionary{System.String,System.Object},System.Action)">
+            <summary>
+            Execute a request, without specifying an identifier.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="recoverParameters">Useful parameters to recover errors.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Collections.Generic.IDictionary{System.String,System.Object},System.Action)">
+            <summary>
+            Execute a request, without specifying an identifier.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="recoverParameters">Useful parameters to recover errors.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute(System.Action,System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Action)">
+            <summary>
+            Execute a request that returns nothing.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="identifier">Unique identifier for the request when comes the time to log errors.</param>
+            <param name="recoverParameters">Useful parameters to recover errors.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.Execute``1(System.Func{``0},System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Action)">
+            <summary>
+            Execute a request.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="identifier">Unique identifier for the request when comes the time to log errors.</param>
+            <param name="recoverParameters">Useful parameters to recover errors.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RequestRetryExecutioner.ExecuteAsync``1(System.Func{System.Threading.Tasks.Task{``0}},System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Action)">
+            <summary>
+            Execute a request.
+            </summary>
+            <typeparam name="T">The result type of the request.</typeparam>
+            <param name="request">The request.</param>
+            <param name="identifier">Unique identifier for the request when comes the time to log errors.</param>
+            <param name="recoverParameters">Useful parameters to recover errors.</param>
+            <param name="customActionOnError">Execute a custom action when an error occurred (i.e.: extra logging).</param>
+            <returns>The request's result.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.RestRequest">
+            <summary>
+            A generic request to a REST API.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.RequestUri">
+            <inheritDoc />
+            The request uri uses UriBuilder to specify query.
+            Uri relative path will throw an exception if relative path is too long and has colon.
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.SanitizedRequestUri">
+            <inheritDoc />
+            The sanitized request uri uses UriBuilder to specify query.
+            Uri relative path will throw an exception if relative path is too long and has colon.
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.Host">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.RequestPath">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.RequestAttempt">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.Headers">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.Parameters">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.SanitizedParameters">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.PayloadParameters">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.PayloadStreamContent">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.PayloadStringContent">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.PayloadMultiPartFormDataContent">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.PayloadContentType">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.Method">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.Timeout">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.#ctor(System.String)">
+            <summary>
+            Constructor.
+            Initializes a new REST request with an API endpoint.
+            </summary>
+            <param name="host">The host URI the REST endpoint of the request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.#ctor(System.Uri)">
+            <summary>
+            Constructor.
+            Initializes a new REST request with an API endpoint.
+            </summary>
+            <param name="host">The host URI the REST endpoint of the request.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            Initializes a new REST request with an API endpoint and the relative path of the REST resource.
+            </summary>
+            <param name="host">The host URI the REST endpoint of the request.</param>
+            <param name="resourcePath">The path of the REST resource.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.#ctor(System.Uri,System.String)">
+            <summary>
+            Constructor.
+            Initializes a new REST request with an API endpoint and the relative path of the REST resource.
+            </summary>
+            <param name="host">The host URI the REST endpoint of the request.</param>
+            <param name="resourcePath">The path of the REST resource.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.#ctor(System.Uri,Coveo.Connectors.Utilities.RestClient.Request.IRestRequest)">
+            <summary>
+            Constructor.
+            Initializes a new REST request with an API endpoint and the relative path of the REST resource.
+            </summary>
+            <param name="host">The host URI the REST endpoint of the request.</param>
+            <param name="restRequest">.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.ToString">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.GetQueryString">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.GetSanitizedQueryString">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.HasPayload">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.GetIdentifier">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.ParseFromString(System.String)">
+            <summary>
+            Parses a string URI by extracting the current query string parameters into a new <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest"/>
+            and filled <see cref="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Parameters"/>.
+            </summary>
+            <param name="uri">The string representing an URI.</param>
+            <returns>The parsed <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest"/>.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequest.ParseAndEncodeFromString(System.String)">
+            <summary>
+            Parses a string URI by extracting the current query string parameters into a new <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest"/>
+            and filled each <see cref="P:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest.Parameters"/> with an encoded version.
+            </summary>
+            <param name="uri">The string representing an URI.</param>
+            <returns>The parsed <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest"/>.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions">
+            <summary>
+            Extension methods of an <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> to simplify
+            the manipulation and the configuration of the REST request.
+            </summary>
+            <remarks>
+            It offers a fluent interface for chaining methods when building
+            a <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddHeader(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String,System.String,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Adds or updates an HTTP header to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="headerName">The header key name.</param>
+            <param name="headerValue">The header value.</param>
+            <param name="logger">A logger instance. If none provided the static class logger will be used.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.SetMethod(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.Net.Http.HttpMethod)">
+            <summary>
+            Sets the HTTP method of the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="method">The HTTP method to use.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddParameter(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String,System.String,System.Boolean)">
+            <summary>
+            Adds or updates a parameter and its value to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="parameterName">The parameter name.</param>
+            <param name="parameterValue">The parameter value.</param>
+            <param name="sanitize">Whether the parameter value should be sanitized.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddParameter(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Adds or updates a parameter and its value to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="parameterName">The parameter name.</param>
+            <param name="parameterValue">The parameter value.</param>
+            <param name="sanitize">Whether the parameter value should be sanitized.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddParameter(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Adds or updates a parameter and its list of values to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="parameterName">The parameter name.</param>
+            <param name="parameterValues">The list of values of the parameter.</param>
+            <param name="sanitize">Whether the parameter value should be sanitized.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddPayloadParameter(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String,System.String)">
+            <summary>
+            Adds or updates a payload parameter to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="parameterName">The payload parameter name.</param>
+            <param name="parameterValue">The payload parameter value.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddJsonPayloadContent(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String)">
+            <summary>
+            Adds or updates a JSON payload content to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="jsonContent">The JSON payload content.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddStringPayloadContent(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.String,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Adds or updates a string payload content to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="stringContent">The string payload content.</param>
+            <param name="contentType">The string payload content-type.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddStreamPayloadContent(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.IO.Stream)">
+            <summary>
+            Adds or updates a stream payload content to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="streamContent">The stream payload content.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddStreamPayloadContent(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.IO.Stream,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Adds or updates a stream payload content to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="streamContent">The stream payload content.</param>
+            <param name="contentType">The stream payload content-type.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Request.RestRequestExtensions.AddMultipartFormDataContent(Coveo.Connectors.Utilities.RestClient.Request.IRestRequest,System.Net.Http.MultipartFormDataContent)">
+            <summary>
+            Adds or updates a stream payload content to the request.
+            </summary>
+            <param name="request">The <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</param>
+            <param name="multipartFormDataContent">The multipart form data content.</param>
+            <returns>The updated <see cref="T:Coveo.Connectors.Utilities.RestClient.Request.IRestRequest" /> instance.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.ContractResolvers.SnakeCaseContractResolver">
+            <summary>
+            Allows the deserialization of JSON using a snake case naming convention.
+            </summary>
+            <remarks>
+            More information on the resolver can be found on github:
+            https://github.com/JamesNK/Newtonsoft.Json/blob/122afba9908832bd5ac207164ee6c303bfd65cf1/Src/Newtonsoft.Json/Utilities/StringUtils.cs
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.ContractResolvers.SnakeCaseContractResolver.ToSnakeCaseMs(System.String)">
+            <summary>
+            MS implementation of ToSnakeCase.
+            https://github.com/efcore/EFCore.NamingConventions/blob/main/EFCore.NamingConventions/Internal/SnakeCaseNameRewriter.cs
+            </summary>
+            <remarks>
+            This implementation fix a bug present in Newtonsoft implementation
+            (Newtonsoft: LONG BLUE -> lon_g_blue)
+            (MS: LONG BLUE -> long_blue)
+            </remarks>
+            <param name="name">The string to convert.</param>
+            <returns>The string converted to snake case pattern.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.ContractResolvers.SnakeCaseContractResolver.ToSnakeCase(System.String)">
+            <summary>
+            Converts any string to match a snake case pattern.
+            (ex: MyString -> my_string)
+            </summary>
+            <param name="stringToConvert">The string to convert.</param>
+            <returns>The initial string matching a snake case pattern.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.ContractResolvers.SnakeCaseContractResolver.IsHighSurrogate(System.Char)">
+            <summary>
+            Checks if a character is a high surrogate.
+            </summary>
+            <param name="character">The character to check.</param>
+            <returns>Whether or not the character is a high surrogate.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.ContractResolvers.SnakeCaseContractResolver.ResolvePropertyName(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.ContractResolvers.SnakeCaseContractResolver.SnakeCaseState">
+            States used to keep track of the conversion progress.
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.DefaultHttpRestResponseParser">
+            <summary>
+            Parses a HTTP response content to the specified object type.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.DefaultHttpRestResponseParser.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.DefaultHttpRestResponseParser.#ctor(Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="logger">The class logger instance.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.DefaultHttpRestResponseParser.Parse``1(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.HttpResponseParsingException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The exception message.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.HttpResponseParsingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The exception message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2">
+            <summary>
+            Represents a generic response received of a request to a REST API.
+            </summary>
+            <typeparam name="T">The type of the expected object in the response content.</typeparam>
+            <typeparam name="TE">The type of the object received in the response when the request has failed.</typeparam>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.OriginalRequest">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.ResponseContent">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.HttpHeaders">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.HttpCookies">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.HttpStatusCode">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.HttpReasonPhrase">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.ResponseObject">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.ResponseError">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.ReceivedTime">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.HttpRestResponse`2.IsSuccessful">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2">
+            <summary>
+            A response received from a HTTP request to a REST API.
+            </summary>
+            <typeparam name="T">The type of the object received in the response.</typeparam>
+            <typeparam name="TE">The type of the object received in the response when the request has failed.</typeparam>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.OriginalRequest">
+            <summary>
+            Original API request to obtain this response.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.HttpStatusCode">
+            <summary>
+            The status code of the HTTP response for the request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.HttpReasonPhrase">
+            <summary>
+            The reason phrase which typically is sent by servers together with the HTTP status code.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.IsSuccessful">
+            <summary>
+            Whether the request was successful (without any error).
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.HttpHeaders">
+            <summary>
+            The HTTP headers of the response.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.HttpCookies">
+            <summary>
+            The HTTP cookies returned in the response of the request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.ResponseContent">
+            <summary>
+            The response in string of the request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.ResponseObject">
+            <summary>
+            The deserialized object representation of a successful response.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.ResponseError">
+            <summary>
+            The deserialized object representation of a failed request.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponse`2.ReceivedTime">
+            <summary>
+            The date and time at which the response was received.
+            </summary>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParser">
+            <summary>
+            Defines a generic HTTP response content parser.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParser.Parse``1(System.String)">
+            <summary>
+            Parses the response content in string into the provided type <typeparamref name="T" />.
+            </summary>
+            <typeparam name="T">The type of the content to parse.</typeparam>
+            <param name="content">The response content in string.</param>
+            <returns>A parsed <typeparamref name="T" /> instance.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParserAsync">
+            <summary>
+            Defines a generic HTTP async response content parser.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.IHttpRestResponseParserAsync.ParseAsync``1(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Parses the response content in string into the provided type <typeparamref name="T" />.
+            </summary>
+            <typeparam name="T">The type of the content to parse.</typeparam>
+            <param name="httpResponse">The HTTP response message.</param>
+            <returns>A parsed <typeparamref name="T" /> instance.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.RestClient.Response.JsonCreationConverter`1">
+            <summary>
+            Creation converter that deserializes the JSON to the expected <typeparamref name="T" /> type.
+            </summary>
+            <typeparam name="T">The expected type of the deserialized object from JSON.</typeparam>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.JsonCreationConverter`1.CanConvert(System.Type)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.JsonCreationConverter`1.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.JsonCreationConverter`1.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.RestClient.Response.JsonCreationConverter`1.Create(System.Type,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Create an instance of the object type based on the properties in the JSON object.
+            </summary>
+            <param name="objectType">The expected object type.</param>
+            <param name="jObject">The content of the JSON object that will be deserialized.</param>
+            <returns>The created instance of the object with the expected type.</returns>
+        </member>
+    </members>
+</doc>

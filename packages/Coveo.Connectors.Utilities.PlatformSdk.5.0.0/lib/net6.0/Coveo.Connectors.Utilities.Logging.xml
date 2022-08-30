@@ -1,0 +1,852 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coveo.Connectors.Utilities.Logging</name>
+    </assembly>
+    <members>
+        <member name="M:Coveo.Connectors.Utilities.Logging.FatalErrorLogger.IFatalErrorLogger.Report(System.String,System.String)">
+            <summary>
+            Reports a fatal error to the monitoring system.
+            </summary>
+            <param name="message">The error message to report.</param>
+            <param name="errorId">The error identifier (optional).</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.FatalErrorLogger.IFatalErrorLogger.Report(System.String,System.String,System.Exception)">
+            <summary>
+            Reports a fatal error to the monitoring system.
+            </summary>
+            <param name="message">The error message to report.</param>
+            <param name="errorId">The error identifier (optional).</param>
+            <param name="exception">The exception to report.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.FatalErrorLogger.VoidFatalErrorLogger">
+            <summary>
+            Empty implementation of <see cref="T:Coveo.Connectors.Utilities.Logging.FatalErrorLogger.IFatalErrorLogger" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.FatalErrorLogger.VoidFatalErrorLogger.Report(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.FatalErrorLogger.VoidFatalErrorLogger.Report(System.String,System.String,System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.ILogger">
+             <summary>
+             Use this interface to log messages to the underlying logging framework.
+            
+             Verbose, Trace, Debug, Info, Warn, Error and Fatal log levels are supported.
+             <remarks>
+             If the message to log is a formatted string, see the logging method overloads
+             that use a format string. This will avoid computing the formatted string
+             if logging is disabled.
+             </remarks>
+             </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.ILogger.IsTraceEnabled">
+            <summary>
+            Checks if this logger is enabled for the Trace level.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.ILogger.IsDebugEnabled">
+            <summary>
+            Checks if this logger is enabled for the Debug level.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.ILogger.IsInfoEnabled">
+            <summary>
+            Checks if this logger is enabled for the Info level.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.ILogger.IsWarnEnabled">
+            <summary>
+            Checks if this logger is enabled for the Warn level.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.ILogger.IsErrorEnabled">
+            <summary>
+            Checks if this logger is enabled for the Error level.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Trace(System.String)">
+            <summary>
+            Logs a message with the Trace level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Trace(System.String,System.Exception)">
+            <summary>
+            Logs a message with the Trace level including the stack trace of the
+            Exception passed as a parameter.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Trace(System.String,System.Object)">
+            <summary>
+            Logs a formatted message string with the Trace level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Trace(System.String,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Trace level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Trace(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Trace level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+            <param name="arg3">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Trace(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the Trace level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="args">An object array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Debug(System.String)">
+            <summary>
+            Logs a message with the Debug level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Debug(System.String,System.Exception)">
+            <summary>
+            Logs a message with the Debug level including the stack trace of the
+            Exception passed as a parameter.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Debug(System.String,System.Object)">
+            <summary>
+            Logs a formatted message string with the Debug level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Debug(System.String,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Debug level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Debug(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Debug level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+            <param name="arg3">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Debug(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the Debug level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="args">An object array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Info(System.String)">
+            <summary>
+            Logs a message with the Info level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Info(System.String,System.Exception)">
+            <summary>
+            Logs a message with the Info level including the stack trace of the
+            Exception passed as a parameter.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Info(System.String,System.Object)">
+            <summary>
+            Logs a formatted message string with the Info level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Info(System.String,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Info level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Info(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Info level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+            <param name="arg3">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Info(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the Info level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="args">An object array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Notice(System.String)">
+            <summary>
+            Logs a message with the Notice level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Warn(System.String)">
+            <summary>
+            Logs a message with the Warn level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Warn(System.String,System.Exception)">
+            <summary>
+            Logs a message with the Warn level including the stack trace of the
+            Exception passed as a parameter.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Warn(System.String,System.Object)">
+            <summary>
+            Logs a formatted message string with the Warn level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Warn(System.String,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Warn level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Warn(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Warn level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+            <param name="arg3">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Warn(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the Warn level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="args">An object array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Error(System.String)">
+            <summary>
+            Logs a message with the Error level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Error(System.String,System.Exception)">
+            <summary>
+            Logs a message with the Error level including the stack trace of the
+            Exception passed as a parameter.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Error(System.String,System.Object)">
+            <summary>
+            Logs a formatted message string with the Error level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Error(System.String,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Error level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Error(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Error level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+            <param name="arg3">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Error(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the Error level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="args">An object array containing zero or more objects to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Fatal(System.String)">
+            <summary>
+            Logs a message with the Fatal level.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Fatal(System.String,System.Exception)">
+            <summary>
+            Logs a message with the Fatal level including the stack trace of the
+            Exception passed as a parameter.
+            </summary>
+            <param name="message">The message to log.</param>
+            <param name="exception">The exception to log, including its stack trace.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Fatal(System.String,System.Object)">
+            <summary>
+            Logs a formatted message string with the Fatal level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Fatal(System.String,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Fatal level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Fatal(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Logs a formatted message string with the Fatal level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="arg1">An object to format.</param>
+            <param name="arg2">An object to format.</param>
+            <param name="arg3">An object to format.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.ILogger.Fatal(System.String,System.Object[])">
+            <summary>
+            Logs a formatted message string with the Fatal level.
+            </summary>
+            <param name="format">A string containing zero or more format items.</param>
+            <param name="args">An object array containing zero or more objects to format.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer">
+            <summary>
+            Initializes the log4net logging mechanism. Will read the log4net configuration.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer.Initialize(System.String)">
+            <summary>
+            Initializes the log4net configuration for other uses.
+            The logging file will be monitored and changes will affect the logging behavior instantly.
+            The path given in parameters will be used to find the logging file.
+            </summary>
+            <remarks>
+            This function <b>MUST</b> be called before any calls to a logger is made.
+            </remarks>
+            <param name="configPath">The log4net configuration xml file path.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer.SetLoggers(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Sets the specified loggers to the corresponding level.
+            </summary>
+            <param name="appenderName">Name of the requested appender</param>
+            <param name="loggerLevelMap">Dictionary with logger names as keys and logger level as value.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer.LogInitializationError(System.Action{System.String})">
+            <summary>
+            Logs the initialization error, if any.
+            </summary>
+            <param name="emergencyLogger">A delegate taking a message as a parameter.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer.SetExternalLoggingDelegates(System.Action{System.String,System.Int32})">
+            <summary>
+            Sets the initialized logger to log eventual configuration changes and the specific loggers, if any.
+            </summary>
+            <param name="logMessageDelegate">The initialized logger.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer.Initialize">
+             <summary>
+             Initializes the log4net configuration.
+             The logging file will be monitored and changes will affect the logging
+             behavior instantly.
+            
+             The path of the calling process will be used to find the logging file.
+            
+             This <b>MUST</b> be called before any calls to a logger is made.
+             </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetInitializer.Shutdown">
+            <summary>
+            Shuts down the log4net appenders. This must be called before the crawler
+            process is terminated to make sure buffers are properly emptied.
+            </summary>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger">
+             <summary>
+             ILogger implementation that wraps a log4net logger.
+             Create an instance of this class using LogManager.GetLogger(type).
+            
+             See http://logging.apache.org/log4net/release/sdk/ for more information.
+             </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.IsTraceEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.IsDebugEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.IsInfoEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.IsWarnEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.IsErrorEnabled">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.#ctor(log4net.Core.ILogger)">
+            <summary>
+            Constructs a Log4NetLogger that will redirect all of its method calls
+            to the wrapped log4net logger.
+            </summary>
+            <param name="wrappedLog4NetLogger">The log4net logger to wrap.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Trace(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Trace(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Trace(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Trace(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Trace(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Trace(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Debug(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Debug(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Debug(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Debug(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Debug(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Debug(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Info(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Info(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Info(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Info(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Info(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Info(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Notice(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Warn(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Warn(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Warn(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Warn(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Warn(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Warn(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Error(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Error(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Error(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Error(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Error(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Error(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Fatal(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Fatal(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Log4Net.Log4NetLogger.Fatal(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Logger.Trace(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Logger.Debug(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Logger.Error(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Logger.Error(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.Logger.Warn(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.LoggerFactory">
+            <summary>
+            A log4net logger factory.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerFactory.GetLogger(System.Type)">
+            <summary>
+            Obtains a ILogger instance associated with the provided type.
+            </summary>
+            <param name="type">The type of the class that will be using this logger.</param>
+            <returns>A ILogger instance.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.LoggerUtilities">
+            <summary>
+            Utility functions for loggers and extensions for <see cref="T:Coveo.Connectors.Utilities.Logging.ILogger" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.GetClassLogger">
+            <summary>
+            Gets the logger for the calling class.
+            </summary>
+            <returns>The logger for the calling class.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.GetClassLogger(System.String)">
+            <summary>
+            Gets the metrics logger for the calling class.
+            </summary>
+            <param name="prefix">The prefix to add to the logger name, without the dot.</param>
+            <returns>The logger for the calling class.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.GetPlatformLogger">
+            <summary>
+            Gets the platform logger.
+            </summary>
+            <returns>The platform logger.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.GetMetricsLogger">
+            <summary>
+            Gets the metrics logger for the calling class.
+            </summary>
+            <returns>The metrics logger for the calling class.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.GetHttpLogger">
+            <summary>
+            Gets the HTTP trace logger for the calling class.
+            </summary>
+            <returns>The HTTP trace logger for the calling class.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.ScopedMetrics(Coveo.Connectors.Utilities.Logging.ILogger,System.String,System.Int32)">
+            <summary>
+            Gets a disposable scope logging the execution time of the scoped code.
+            </summary>
+            <param name="metricsLogger">The metrics logger.</param>
+            <param name="methodName">The method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+            <returns>The disposable scope.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.LogMetrics(Coveo.Connectors.Utilities.Logging.ILogger,System.String,System.String,System.Boolean,System.Int64)">
+            <summary>
+            Logs metrics in a formatted message at DEBUG level.
+            </summary>
+            <param name="metricsLogger">The metrics logger.</param>
+            <param name="callName">The call name.</param>
+            <param name="callParameters">The call parameters.</param>
+            <param name="success">Whether the call has been successful.</param>
+            <param name="elapsedMilliseconds">The number of elapsed milliseconds.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.DumpObjectData(Coveo.Connectors.Utilities.Logging.ILogger,System.String,System.Object)">
+            <summary>
+            Serializes the specified object to a JSON string for debugging purposes.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LoggerUtilities.DumpHttpWebObject(Coveo.Connectors.Utilities.Logging.ILogger,System.String,System.Object)">
+            <summary>
+            Dump method for HttpWebRequest or HttpWebResponse.
+            </summary>
+            <param name="logger">The logger to use.</param>
+            <param name="message">Message associated with the dump.</param>
+            <param name="objectToDump">The object to dump.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.LambdaDisposable">
+            <summary>
+            Wraps an action as an IDisposable.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LambdaDisposable.#ctor(System.Action)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="disposeAction">The action to perform on dispose.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LambdaDisposable.Dispose">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.LogManager">
+            <summary>
+            Use this class to obtain ILogger instances and use some helper methods.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.OverrideLoggerForTests(Coveo.Connectors.Utilities.Logging.ILogger,System.Type)">
+            <summary>
+            Enable a way to inject a mock object as the active logger for tests purpose.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="type">Type to override logger for.</param>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.LogManager.FatalErrorLogger">
+            <summary>
+            The logger used to report fatal errors (or alerts) to the monitoring system.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.GetLogger(System.Type)">
+            <summary>
+            Obtains a ILogger instance associated with the provided type.
+            </summary>
+            <param name="type">The type of the class that will be using this logger.</param>
+            <returns>A ILogger instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.GetLogger(System.String)">
+            <summary>
+            Obtains a ILogger instance associated with the provided type.
+            </summary>
+            <param name="loggerName">The name of the desired logger.</param>
+            <returns>A ILogger instance.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.SetGlobalContextProperty(System.String,System.String)">
+            <summary>
+            Sets a global context property for log4net.
+            </summary>
+            <param name="propertyName">The name of the property.</param>
+            <param name="value">The value of the property.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.RemoveGlobalContextProperty(System.String)">
+            <summary>
+            Removes a global context property for log4net.
+            </summary>
+            <param name="propertyName">The name of the property.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.SetCurrentThreadContextProperty(System.String,System.String)">
+            <summary>
+            Sets a current thread context property for log4net.
+            </summary>
+            <param name="propertyName">The name of the property.</param>
+            <param name="value">The value of the property.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.LogManager.RemoveCurrentThreadContextProperty(System.String)">
+            <summary>
+            Removes a current thread context property for log4net.
+            </summary>
+            <param name="propertyName">The name of the property.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.RollingFileAppender">
+            <summary>
+            The <see cref="T:log4net.Appender.RollingFileAppender" /> with this difference :
+            the logging is disabled when the "DisableIfNotEmpty" parameter is specified and not empty.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.RollingFileAppender.Trigger">
+            <summary>
+            A trigger value controlled by the parameter <see cref="P:Coveo.Connectors.Utilities.Logging.RollingFileAppender.ActionIfTriggerNotEmpty" />.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.RollingFileAppender.ActionIfTriggerNotEmpty">
+            <summary>
+            Set whether the trigger should enable or disable the appender of the trigger is not empty.
+            If set to <see cref="F:Coveo.Connectors.Utilities.Logging.RollingFileAppender.TriggerAction.Enable" />, the appender is always disabled unless the trigger value is not empty.
+            If set to <see cref="F:Coveo.Connectors.Utilities.Logging.RollingFileAppender.TriggerAction.Disable" />, the appender is only disabled if the trigger is not empty.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.RollingFileAppender.ActivateOptions">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Logging.VoidLogger">
+            <summary>
+            Empty logger implementation.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.Logging.VoidLogger.INSTANCE">
+            Unique instance of the void Logger.
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.VoidLogger.IsDebugEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.VoidLogger.IsInfoEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.VoidLogger.IsTraceEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.VoidLogger.IsWarnEnabled">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Logging.VoidLogger.IsErrorEnabled">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Debug(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Debug(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Debug(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Debug(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Debug(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Debug(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Error(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Fatal(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Fatal(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Fatal(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Fatal(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Fatal(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Fatal(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Error(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Error(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Error(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Error(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Error(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Notice(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Info(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Info(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Info(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Info(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Info(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Info(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Trace(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Trace(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Trace(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Trace(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Trace(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Trace(System.String)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Warn(System.String,System.Object[])">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Warn(System.String,System.Object,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Warn(System.String,System.Object,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Warn(System.String,System.Object)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Warn(System.String,System.Exception)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Logging.VoidLogger.Warn(System.String)">
+            <inheritDoc />
+        </member>
+    </members>
+</doc>

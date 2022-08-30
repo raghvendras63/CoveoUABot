@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coveo.Connectors.Utilities.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Coveo.Connectors.Utilities.Contracts.DebugPrecondition">
+            <summary>
+            This class allows usage of preconditions that are only enforced while debugging.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.DebugPrecondition.Assert(System.Boolean)">
+            <summary>
+            Throws an ArgumentException when debugger is attached only.
+            </summary>
+            <param name="condition">The condition to not meet.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.DebugPrecondition.Assert(System.Boolean,System.String)">
+            <summary>
+            Throws an ArgumentException when debugger is attached only using the specified message.
+            </summary>
+            <param name="condition">The condition to not meet.</param>
+            <param name="message">The message when the provided condition is met.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.DebugPrecondition.Fail(System.String)">
+            <summary>
+            Throws an InvalidOperationException when debugger is attached only.
+            </summary>
+            <param name="message">The explanation message.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.DebugPrecondition.Fail(System.String,System.String)">
+            <summary>
+            Throws an InvalidOperationException when debugger is attached only.
+            </summary>
+            <param name="message">The explanation message.</param>
+            <param name="detailedMessage">Additional information.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.DebugPrecondition.Fail(System.String,System.Exception)">
+            <summary>
+            Throws an InvalidOperationException when debugger is attached only.
+            </summary>
+            <param name="message">The explanation message.</param>
+            <param name="exception">Original exception.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Contracts.Precondition">
+            <summary>
+            This method leverages the <see cref="T:System.Runtime.CompilerServices.CallerMemberNameAttribute" /> and the <see cref="T:System.Runtime.CompilerServices.CallerLineNumberAttribute" />
+            that allow us to obtain the called method name and the line number in the source file at which the method is called.
+            These values are hard-coded during the compilation. It will not affect the performance.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.IsFalse(System.Boolean,System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentException using the specified message when the
+            provided condition is met.
+            </summary>
+            <param name="condition">The condition to not meet.</param>
+            <param name="conditionInfo">The explanation message about why the precondition failed.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.IsTrue(System.Boolean,System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentException using the specified message when the
+            provided condition is not met.
+            </summary>
+            <param name="condition">The condition to meet.</param>
+            <param name="conditionInfo">The explanation message about why the precondition failed.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.IsTrue``1(System.Boolean,System.String,System.String,System.Int32)">
+            <summary>
+            Throws the specified exception type with the inner argument exception using the specified message when the
+            provided condition is not met.
+            </summary>
+            <param name="condition">The condition to meet.</param>
+            <param name="conditionInfo">The explanation message about why the precondition failed.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.NotEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentNullException if the specified string parameter is
+            null or an ArgumentException if the specified string parameter is
+            empty.
+            </summary>
+            <param name="parameter">The string parameter instance to test.</param>
+            <param name="parameterName">The name of the parameter, must not be empty.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.NotEmpty``1(System.Collections.Generic.IEnumerable{``0},System.Func{System.Linq.Expressions.Expression{System.Func{System.Object}}},System.String,System.Int32)">
+             <summary>
+             Throws an ArgumentNullException if the specified string parameter is
+             null or an ArgumentException if the specified string parameter is
+             empty.
+             </summary>
+             <param name="parameter">The string parameter instance to test.</param>
+             <param name="parameterExpression">
+             An expression that evaluates to the object.
+             The expression should always contain the object being passed as the first parameter
+             and nothing else.
+            
+             Example :
+             Precondition.NotEmpty(banane, nameof(banane));
+             </param>
+             <param name="methodName">The called method name.</param>
+             <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.NotEmpty(System.Guid,System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentException if the specified Guid parameter is equal
+            to an empty Guid.
+            </summary>
+            <param name="parameter">The Guid parameter instance to test.</param>
+            <param name="parameterName">The parameter name.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.IsGreaterThanZero(System.Double,System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentException if the parameter value is not greater than zero.
+            </summary>
+            <param name="parameter">The parameter value.</param>
+            <param name="parameterName">The parameter name.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.CollectionNotEmpty(System.Collections.ICollection,System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentNullException if the specified string parameter is
+            null or an ArgumentException if the specified string parameter is
+            empty.
+            </summary>
+            <param name="parameter">The string parameter instance to test.</param>
+            <param name="parameterName">The name of the parameter, must not be empty.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.CollectionNotEmpty(System.Collections.ICollection,System.Func{System.Linq.Expressions.Expression{System.Func{System.Object}}},System.String,System.Int32)">
+             <summary>
+             Throws an ArgumentNullException if the specified string parameter is
+             null or an ArgumentException if the specified string parameter is
+             empty.
+             </summary>
+             <param name="parameter">The string parameter instance to test.</param>
+             <param name="parameterExpression">
+             An expression that evaluates to the object.
+             The expression should always contain the object being passed as the first parameter
+             and nothing else.
+            
+             Example :
+             Precondition.NotEmpty(banane, nameof(banane));
+             </param>
+             <param name="methodName">The called method name.</param>
+             <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.NotNull(System.Object,System.String,System.String,System.Int32)">
+            <summary>
+            Throws an ArgumentNullException when the specified object instance is null.
+            </summary>
+            <param name="parameter">The parameter instance to test.</param>
+            <param name="parameterName">The name of the parameter, must not be empty.</param>
+            <param name="methodName">The called method name.</param>
+            <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.NotNull(System.Object,System.Func{System.Linq.Expressions.Expression{System.Func{System.Object}}},System.String,System.Int32)">
+             <summary>
+             Throws an ArgumentNullException when the specified object instance is null.
+             </summary>
+             <param name="parameter">The object that might be null.</param>
+             <param name="parameterExpression">
+             An expression that evaluates to the object.
+             The expression should always contain the object being passed as the first parameter
+             and nothing else.
+            
+             Example :
+             Precondition.NotNull(banane, nameof(banane));
+             </param>
+             <param name="methodName">The called method name.</param>
+             <param name="sourceLineNumber">The line number in the source file at which the method is called.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.IsPreconditionFailure(System.String,System.String@)">
+            <summary>
+            Checks whether an exception message contains a precondition failure.
+            </summary>
+            <param name="exceptionMessage">The exception message to check.</param>
+            <param name="preconditionPart">The part of the exception message that corresponds to the precondition.</param>
+            <returns>Whether the exception message contains a precondition failure.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Contracts.Precondition.IsPreconditionFailure(System.String,System.Exception,System.String@)">
+            <summary>
+            Checks whether a message or exception is a precondition failure.
+            </summary>
+            <param name="message">The message being logged.</param>
+            <param name="exception">The exception being logged.</param>
+            <param name="preconditionFailureText">The part of the exception message that corresponds to the precondition.</param>
+            <returns>Whether the message or exception is a precondition failure.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coveo.Connectors.Utilities.Runtime</name>
+    </assembly>
+    <members>
+        <member name="T:Coveo.Connectors.Utilities.Runtime.BindingFailuresHandler">
+            <summary>
+            Handles assembly binding failures at runtime.
+            </summary>
+            <remarks>
+            This is an alternative to having an application configuration file for
+            the hosting process in order to configure binding redirections.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.BindingFailuresHandler.Handle(System.Collections.Generic.ISet{System.String})">
+            <summary>
+            Setup Application Domain hook to force the specified assemblies to be bound to the version currently available.
+            </summary>
+            <param name="assemblies">The set of assemblies for which binding failures will be handled.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.BindingFailuresHandler.Handle(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Setup Application Domain hook to force the specified assemblies to be bound to the version currently available.
+            </summary>
+            <param name="assembliesMappings">The set of assemblies for which binding failures will be handled.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator">
+            <summary>
+            Provides utility methods that are used to validate security certificates.
+            </summary>
+            <remarks>
+            The <see cref="M:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator.Validate(System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)" /> method is meant to be used as a callback for
+            <see cref="P:System.Net.ServicePointManager.ServerCertificateValidationCallback" /> or
+            <see cref="P:System.Net.Http.HttpClientHandler.ServerCertificateCustomValidationCallback"/>.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator.Instance">
+            <summary>
+            Retrieve and create if needed the static instance of <see cref="T:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator"/>.
+            </summary>
+            <returns>The static instance of <see cref="T:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator"/>.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator.ClearCache">
+            <summary>
+            Clears the current security certificates cache.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator.Register(System.Boolean)">
+            <summary>
+            Registers the certificate validator callback.
+            </summary>
+            <param name="alwaysTrustCertificates">Whether to always trust invalid certificates.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator.Register(System.Net.Http.HttpClientHandler,System.Boolean)">
+            <summary>
+            Registers the certificate validator callback.
+            </summary>
+            <param name="httpHandler">Client handler executing the request.</param>
+            <param name="alwaysTrustCertificates">Whether to always trust invalid certificates.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.CertificateValidator.Validate(System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            Validates the specified security certificate.
+            </summary>
+            <param name="certificate">The certificate used to authenticate the remote party.</param>
+            <param name="chain">The chain of certificate authorities associated with the remote certificate.</param>
+            <param name="sslPolicyErrors">One or more errors associated with the remote certificate.</param>
+            <returns>True if the certificate can be trusted, false if it cannot.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Runtime.Certificates.InvalidCertificateException">
+            <summary>
+            Exception thrown when an invalid SSL/TLS certificate was received from a remote server.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.InvalidCertificateException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The Exception Message.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.InvalidCertificateException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The Exception Message.</param>
+            <param name="exception">The Inner Exception.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.Certificates.InvalidCertificateException.CreateExceptionOnCertificateErrors(System.Exception)">
+            <summary>
+            Creates an <see cref="T:Coveo.Connectors.Utilities.Runtime.Certificates.InvalidCertificateException" /> if the specified exception
+            is a <see cref="T:System.Net.WebException" /> with the Status 'TrustFailure', or if it contains
+            one in its inner exceptions. Returns null otherwise.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns>
+            An <see cref="T:Coveo.Connectors.Utilities.Runtime.Certificates.InvalidCertificateException" /> if the exception contains
+            a certificate error, null if not.
+            </returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Runtime.DuckTyping">
+            <summary>
+            Helpers for duck typing.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.ToString(System.Object)">
+            <summary>
+            Extracts a string for the given value, returning the empty string
+            on any error.
+            </summary>
+            <param name="valueToCast">The value to cast.</param>
+            <returns>The string value of the object.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.ToInt(System.Object,System.Int32)">
+            <summary>
+            Extracts an integer for the given value.
+            </summary>
+            <param name="objectToExtractInt">The object from which to extract the integer.</param>
+            <param name="defaultValue">The default to return if the extraction fails.</param>
+            <returns>An integer.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.ToBool(System.Object,System.Boolean)">
+            <summary>
+            Extracts a boolean for the given value.
+            </summary>
+            <param name="objectToExtractBool">The object from which to extract the boolean.</param>
+            <param name="defaultValue">The default to return if the extraction fails.</param>
+            <returns>A boolean.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.ToDateTime(System.Object)">
+            <summary>
+            Extracts a DateTime from the given value, returning
+            default(DateTime) if it cannot.
+            </summary>
+            <param name="valueToCast">The value to cast/convert.</param>
+            <returns>The DateTime value of the object.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GuidFromObject(System.Object)">
+            <summary>
+            Safely casts an object value to a GUID.
+            </summary>
+            <param name="valueToCast">The value to cast.</param>
+            <returns>
+            The specified value as a GUID, or the zero GUID on error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.IsEqualToEnum``1(System.Object,``0)">
+            <summary>
+            Check whether an <see cref="T:System.Object" /> value is equal to an <see cref="T:System.Enum" />, ignoring case.
+            The default value of the <see cref="T:System.Enum" /> is considered a null value and equal
+            to values not in the <see cref="T:System.Enum" />. Supports the name (case-insensitive),
+            a comma separated list of names or the numeric value (in fact
+            anything that <see cref="M:System.Enum.Parse(System.Type,System.String)" />
+            supports.
+            </summary>
+            <param name="objectValue">The value.</param>
+            <param name="reference">The reference value.</param>
+            <returns>Whether an <see cref="T:System.Object" /> value is equal to an <see cref="T:System.Enum" />.</returns>
+            <remarks>
+            The C# compiler does not support <see cref="T:System.Enum" /> type constraints (even if the
+            CLR does).
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.ParseEnum``1(System.Object)">
+            <summary>
+            Safely parses an <see cref="T:System.Object" /> value convertible to string to an <see cref="T:System.Enum" />.
+            </summary>
+            <typeparam name="T">The type of the <see cref="T:System.Enum" />.</typeparam>
+            <param name="objectValue">The value to parse.</param>
+            <returns>The parsed value or zero.</returns>
+            <remarks>
+            The C# compiler does not support <see cref="T:System.Enum" /> type constraints (even if the
+            CLR does).
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GetValueAsString``1(System.Collections.Generic.IDictionary{``0,System.Object},``0)">
+            <summary>
+            Extracts a string for the value matching the key in a mapping.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="key">The key.</param>
+            <param name="mapping">The mapping.</param>
+            <returns>
+            The value as a string or the empty string if the key does not exist
+            or on any error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GetValueAsInt``1(System.Collections.Generic.IDictionary{``0,System.Object},``0)">
+            <summary>
+            Extracts an int for the value matching the key in a mapping.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="key">The key.</param>
+            <param name="mapping">The mapping.</param>
+            <returns>
+            The value as an int or the default value if the key does not exist
+            or on any error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GetValueAsInt``1(System.Collections.Generic.IDictionary{``0,System.Object},``0,System.Int32)">
+            <summary>
+            Extracts an int for the value matching the key in a mapping.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="key">The key.</param>
+            <param name="mapping">The mapping.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>
+            The value as an int or the default value if the key does not exist
+            or on any error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GetValueAsBool``1(System.Collections.Generic.IDictionary{``0,System.Object},``0)">
+            <summary>
+            Extracts a bool for the value matching the key in a mapping.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="key">The key.</param>
+            <param name="mapping">The mapping.</param>
+            <returns>
+            The value as a bool or false if the key does not exist
+            or on any error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GetValueAsBool``1(System.Collections.Generic.IDictionary{``0,System.Object},``0,System.Boolean)">
+            <summary>
+            Extracts a bool for the value matching the key in a mapping.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="key">The key.</param>
+            <param name="mapping">The mapping.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>
+            The value as a bool or the default value if the key does not exist
+            or on any error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.GetValueAsDateTime``1(System.Collections.Generic.IDictionary{``0,System.Object},``0)">
+            <summary>
+            Extracts a date time for the value matching the key in a mapping.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <param name="key">The key.</param>
+            <param name="mapping">The mapping.</param>
+            <returns>
+            The value as a date time or the default value if the key does not
+            exist or on any error.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.Equal(System.Object,System.Object)">
+            <summary>
+            Checks if two objects are equal.
+            </summary>
+            <returns>Whether the two objects are equal.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Runtime.DuckTyping.SafeParseEnum``1(System.Object)">
+            <summary>
+            Safely parses an <see cref="T:System.Object" /> value convertible to string to an <see cref="T:System.Enum" />.
+            Returns null if the <see cref="T:System.Object" /> value does not represent a value of
+            the <see cref="T:System.Enum" /> or if it represents an integer too big to fit in the
+            <see cref="T:System.Enum" />'s underlying type.
+            </summary>
+        </member>
+    </members>
+</doc>

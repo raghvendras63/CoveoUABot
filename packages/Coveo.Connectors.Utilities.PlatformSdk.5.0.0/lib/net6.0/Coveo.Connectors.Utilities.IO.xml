@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coveo.Connectors.Utilities.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Coveo.Connectors.Utilities.IO.CRCAlgorithm">
+            <summary>
+            Class used to compute a CRC for a range of data.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.CRCAlgorithm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.CRCAlgorithm.AppendData(System.String)">
+            <summary>
+            Adds string data to the CRC.
+            </summary>
+            <param name="stringValue">The string to add to the CRC.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.CRCAlgorithm.AppendData(System.Byte[])">
+            <summary>
+            Adds data to the computed CRC.
+            </summary>
+            <param name="bytes">The bytes array to add to the CRC.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.CRCAlgorithm.AppendData(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Adds data to the computed CRC.
+            </summary>
+            <param name="bytes">The bytes array to add to the CRC.</param>
+            <param name="offset">The offset at which to start adding data.</param>
+            <param name="length">The number of bytes to add.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.CRCAlgorithm.GetCRC">
+            <summary>
+            Retrieves the CRC as it is so far.
+            </summary>
+            <returns>The CRC as it is so far.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.CRCAlgorithm.Clear">
+            <summary>
+            Clears the current CRC.
+            </summary>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.DirectoryUtilities">
+            <summary>
+            Utilities to manipulate <see cref="T:System.IO.Directory" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.DirectoryUtilities.CopyAll(System.String,System.String)">
+            <summary>
+            Copies files and directories, including subdirectories.
+            </summary>
+            <param name="sourceDirectoryPath">The complete path of the source directory.</param>
+            <param name="targetDirectoryPath">The complete path of the target directory.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.DirectoryUtilities.CopyAll(System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            Copies files and directories, including subdirectories.
+            </summary>
+            <param name="directorySource">The source directory.</param>
+            <param name="directoryTarget">The target directory.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.ReadDelegate">
+            <summary>
+            This delegate is used to read data from a stream.
+            </summary>
+            <param name="data">Will contains the data.</param>
+            <param name="offset">Offset in the buffer.</param>
+            <param name="count">Number of bytes to read.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.StreamPiper">
+            <summary>
+            Implements a stream that redirects its write operation to a write delegate.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.StreamPiper.CanRead">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.StreamPiper.CanSeek">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.StreamPiper.CanWrite">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.StreamPiper.Length">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.StreamPiper.Position">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamPiper.Flush">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamPiper.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamPiper.SetLength(System.Int64)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamPiper.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamPiper.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.StreamUtilities">
+            <summary>
+            Provides various utilities for dealing with streams.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.IO.StreamUtilities.MAX_BYTE_ARRAY_LENGTH">
+            <summary>
+            Max byte array length copied from Array.MaxByteArrayLength,
+            which we cannot use because it is internal.
+            </summary>
+            <remarks>
+            This value corresponds to 2 GB minus an overhead of 57 bytes.
+            </remarks>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.IO.StreamUtilities.MAX_DPM_BYTE_ARRAY_LENGTH">
+            <summary>
+            Max byte array length supported by the indexing pipeline (512 MB).
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="destination">The stream to write to.</param>
+            <param name="source">The stream to read from.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(System.IO.Stream,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="destination">The stream to write to.</param>
+            <param name="source">The stream to read from.</param>
+            <param name="cancellationToken">The cancellation token to observe.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(Coveo.Connectors.Utilities.IO.WriteDelegate,Coveo.Connectors.Utilities.IO.ReadDelegate)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="writeDelegate">Delegate used to write data.</param>
+            <param name="readDelegate">Delegate used to read data.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(Coveo.Connectors.Utilities.IO.WriteDelegate,Coveo.Connectors.Utilities.IO.ReadDelegate,System.Threading.CancellationToken)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="writeDelegate">Delegate used to write data.</param>
+            <param name="readDelegate">Delegate used to read data.</param>
+            <param name="cancellationToken">The cancellation token to observe.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(System.IO.Stream,System.IO.Stream,System.Int32,System.Threading.CancellationToken,System.Action)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="destination">The stream to write to.</param>
+            <param name="source">The stream to read from.</param>
+            <param name="sizeToCopy">The number of bytes to copy.</param>
+            <param name="cancellationToken">The cancellation token to observe.</param>
+            <param name="updateLastActivityDate">A delegate to notify that data was read from the repository.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(Coveo.Connectors.Utilities.IO.WriteDelegate,Coveo.Connectors.Utilities.IO.ReadDelegate,System.Int32,System.Threading.CancellationToken,System.Action)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="writeDelegate">Delegate used to write data.</param>
+            <param name="readDelegate">Delegate used to read data.</param>
+            <param name="sizeToCopy">The number of bytes to copy.</param>
+            <param name="cancellationToken">The cancellation token to observe.</param>
+            <param name="updateLastActivityDate">A delegate to notify that data was read from the repository.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(System.IO.Stream,System.IO.Stream,System.Int32,System.Int32,System.Threading.CancellationToken,System.Action)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="destination">The stream to write to.</param>
+            <param name="source">The stream to read from.</param>
+            <param name="sizeToCopy">The number of bytes to copy.</param>
+            <param name="bufferSize">The size of the read buffer.</param>
+            <param name="cancellationToken">The cancellation token to observe.</param>
+            <param name="updateLastActivityDate">A delegate to notify that data was read from the repository.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.Copy(Coveo.Connectors.Utilities.IO.WriteDelegate,Coveo.Connectors.Utilities.IO.ReadDelegate,System.Int32,System.Int32,System.Threading.CancellationToken,System.Action)">
+            <summary>
+            Copies the data from one stream to another.
+            </summary>
+            <param name="writeDelegate">Delegate used to write data.</param>
+            <param name="readDelegate">Delegate used to read data.</param>
+            <param name="sizeToCopy">The number of bytes to copy.</param>
+            <param name="bufferSize">The size of the read buffer.</param>
+            <param name="cancellationToken">The cancellation token to observe.</param>
+            <param name="updateLastActivityDate">A delegate to notify that data was read from the repository.</param>
+            <returns>The number of bytes read.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.ReadToEnd(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Reads all characters from the current position to the end of the stream and returns them as one string.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The resulting string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.ReadAsString(System.IO.Stream)">
+            <summary>
+            Converts the content of the stream into a string using the UTF-8 encoding.
+            </summary>
+            <param name="stream">The stream to convert.</param>
+            <returns>The stream content as a string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.StreamUtilities.GetBytes(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Gets all bytes from a stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The array of bytes read from a stream.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.TempDirectory">
+            <summary>
+            Class that encapsulates a temporary directory that is automatically deleted.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.TempDirectory.Path">
+            <summary>
+            The path of the temporary directory.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.TempDirectory.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.TempDirectory.Dispose">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.TempFile">
+            <summary>
+            Class that encapsulates a temporary file that is automatically deleted.
+            </summary>
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.IO.TempFile.Path">
+            <summary>
+            The path of the temporary file.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.TempFile.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.TempFile.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="extension">The extension of the temporary file.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.TempFile.#ctor(System.String,System.IO.Stream)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="extension">The extension of the temporary file.</param>
+            <param name="content">Set the file's content.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.IO.TempFile.Dispose">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.IO.WriteDelegate">
+            <summary>
+            This delegate is used to write data to a stream.
+            </summary>
+            <param name="data">The data buffer to write.</param>
+            <param name="offset">Offset in the buffer.</param>
+            <param name="count">Number of bytes to write from the buffer.</param>
+        </member>
+    </members>
+</doc>

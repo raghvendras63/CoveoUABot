@@ -1,0 +1,1121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Coveo.Connectors.Utilities.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.ArrayExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Array" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ArrayExtensions.StartsWith``1(``0[],``0[])">
+            <summary>
+            Whether or not an array starts with a given sequence of elements from a sub array.
+            </summary>
+            <typeparam name="T">Type of elements.</typeparam>
+            <param name="array">The array.</param>
+            <param name="subArray">The sub array.</param>
+            <returns>True if the array starts with the same sequence of elements as the sub array</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ArrayExtensions.SubArray``1(``0[],System.Int32)">
+            <summary>
+            Creates a sub array starting from a specific element of another array.
+            </summary>
+            <typeparam name="T">Type of elements.</typeparam>
+            <param name="array">The array.</param>
+            <param name="startIndex">The index at which the sequence begins.</param>
+            <returns>The sub array</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ArrayExtensions.SubArray``1(``0[],System.Int32,System.Int32)">
+            <summary>
+            Creates a sub array from a sequence of elements from another array.
+            </summary>
+            <typeparam name="T">Type of elements.</typeparam>
+            <param name="array">The array.</param>
+            <param name="startIndex">The index at which the sequence begins.</param>
+            <param name="length">The number of elements to copy.</param>
+            <returns>The sub array</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.CancellationTokenExtensions">
+            <summary>
+            Utilities for <see cref="T:System.Threading.CancellationToken" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.CancellationTokenExtensions.ThrowIfCancellationRequested(System.Threading.CancellationToken,System.Exception)">
+            <summary>
+            If a cancellation token is requested, throws and <see cref="T:System.OperationCanceledException" /> and wraps the
+            <paramref name="innerException" />.
+            </summary>
+            <param name="cancellationToken">The cancellation token to check.</param>
+            <param name="innerException">The inner exception to wrap.</param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.CollectionsExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Collections.Generic.ICollection`1" />s.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.CollectionsExtensions.IsEmpty``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Check if a collection is empty.
+            </summary>
+            <typeparam name="T">The collection's elements type</typeparam>
+            <param name="collection">The collection</param>
+            <returns>true if the collection has no elements, false otherwise.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions">
+            <summary>
+            Extensions for <see cref="T:System.DateTime" />s.
+            </summary>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions._unixEpochTime">
+            <summary>
+            The Unix epoch date (http://en.wikipedia.org/wiki/Unix_time).
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUtcUnixTimespan(System.DateTime)">
+            <summary>
+            Converts the date to an UTC <see cref="T:System.TimeSpan" /> since the Unix epoch.
+            </summary>
+            <param name="date">The date to convert.</param>
+            <returns>A <see cref="T:System.TimeSpan" />.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUnixTimestampInSeconds(System.DateTime)">
+            <summary>
+            Converts the date to a timestamp in seconds since the Unix epoch.
+            </summary>
+            <param name="dateTime">The date to convert.</param>
+            <returns>A timestamp in seconds since the Unix epoch.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUnixTimestampAsString(System.DateTime)">
+            <summary>
+            Converts a DateTime to string containing an Unix timestamp.
+            </summary>
+            <param name="date">The date to convert.</param>
+            <returns>A <see cref="T:System.String" />.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUnixTimestampInMilliSeconds(System.DateTime)">
+            <summary>
+            Converts the date to a timestamp in milliseconds since the Unix epoch.
+            </summary>
+            <param name="dateTime">The date to convert.</param>
+            <returns>A timestamp in milliseconds since the Unix epoch.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToStringWithUnixSupport(System.DateTime,System.String)">
+            <summary>
+            Converts a DateTime to a string. This method supports the special Unix Epoch format
+            which is not supported natively by .NET.
+            </summary>
+            <param name="dateTime">The DateTime to convert.</param>
+            <param name="format">The DateTime format.</param>
+            <returns>The DateTime converted to a string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToIso8601(System.DateTime)">
+            <summary>
+            Returns the string representation of the date in the ISO 8601 format.
+            </summary>
+            <param name="date">The date to convert.</param>
+            <returns>A <see cref="T:System.String" /> representing the current date in ISO 8601 format.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToIso8601WithMilliseconds(System.DateTime)">
+            <summary>
+            Returns the string representation of the date in the ISO 8601 format,
+            with the non-standard, but widely used milliseconds extension.
+            </summary>
+            <param name="date">The date to convert.</param>
+            <returns>A <see cref="T:System.String" /> representing the current date in ISO 8601 with milliseconds format.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUtcDateTimeFromUnixTimestampSeconds(System.String)">
+            <summary>
+            Converts a string containing an Unix timestamp to an UTC DateTime.
+            </summary>
+            <param name="unixTimestampInSeconds">A string containing the timestamp in seconds since the Unix epoch.</param>
+            <returns>A DateTime.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUtcDateTimeFromUnixTimestampSeconds(System.Double)">
+            <summary>
+            Converts a timestamp in seconds since the Unix epoch to an UTC DateTime.
+            </summary>
+            <param name="unixTimestampInSeconds">A timestamp in seconds since the Unix epoch.</param>
+            <returns>A DateTime.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUtcDateTimeFromUnixTimestampMilliseconds(System.Double)">
+            <summary>
+            Converts a timestamp in seconds since the Unix epoch to an UTC DateTime.
+            </summary>
+            <param name="unixTimestampInMilliseconds">A timestamp in milliseconds since the Unix epoch.</param>
+            <returns>A DateTime.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.ToUtcDateTimeFromUnixTimestampMilliseconds(System.String)">
+            <summary>
+            Converts a string containing an Unix timestamp in milliseconds to an UTC DateTime.
+            </summary>
+            <param name="unixTimestampInMilliseconds">A string containing the timestamp in milliseconds since the Unix epoch.</param>
+            <returns>A DateTime.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.IsUnixEpochDateTimeFormat(System.String)">
+            <summary>
+            Determines whether a given DateTime format is the special Unix Epoch one.
+            That format is "special" because it is not supported natively by <see cref="T:System.DateTime"/>.
+            </summary>
+            <param name="dateTimeFormat">The format to check.</param>
+            <returns>Whether the provided format is the Unix Epoch one.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DateTimeExtensions.FormatTimeSpan(System.TimeSpan)">
+            <summary>
+            Formats a given TimeSpan as a string for logging.
+            </summary>
+            <param name="timeSpan">The TimeSpan to format.</param>
+            <returns>A formatted time string.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Collections.IDictionary" />s.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions.GetValueOrDefault``2(System.Collections.Generic.IDictionary{``0,``1},``0)">
+            <summary>
+            Safely obtains a value within the dictionary.
+            If the provided key is not contained in the dictionary, default(TValue)
+            is returned.
+            </summary>
+            <typeparam name="TKey">The type of the dictionary's key.</typeparam>
+            <typeparam name="TValue">The type of the dictionary's value.</typeparam>
+            <param name="dictionary">The dictionary that might contain the provided key.</param>
+            <param name="key">The key to retrieve from the dictionary.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions.GetOrAdd``2(System.Collections.Generic.IDictionary{``0,``1},``0,System.Func{``1})">
+            <summary>
+            Safely obtains a value within the dictionary.
+            If the provided key is not contained in the dictionary,
+            a given default value is inserted and returned.
+            </summary>
+            <typeparam name="TKey">The type of the dictionary's key.</typeparam>
+            <typeparam name="TValue">The type of the dictionary's value.</typeparam>
+            <param name="p_Dictionary">The dictionary that might contain the provided key.</param>
+            <param name="p_Key">The key to retrieve from the dictionary.</param>
+            <param name="p_DefaultValueFactory">A function that generates the default value to add to the dictionary when the key doesn't exist.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions.DictionaryEquals``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Validates that two dictionary are equal by ensuring that every key contained
+            in the first dictionary is also contained in the second dictionary, that
+            they both have the same number of items and that every key
+            is associated with an equal value.
+            </summary>
+            <typeparam name="TKey">The key of the dictionary.</typeparam>
+            <typeparam name="TValue">The value of the dictionary.</typeparam>
+            <param name="first">The first dictionary to compare.</param>
+            <param name="second">The second dictionary to compare.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions.Print``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Prints the content of each key/value pair of a dictionary.
+            </summary>
+            <typeparam name="TKey">The type of the dictionary's key.</typeparam>
+            <typeparam name="TValue">The type of the dictionary's value.</typeparam>
+            <param name="dictionary">The dictionary to print in a string format.</param>
+            <returns>The content of the dictionary in a formatted string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions.Print``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Prints the content of each key/value pair of a dictionary.
+            </summary>
+            <typeparam name="TKey">The type of the dictionary's key.</typeparam>
+            <typeparam name="TValue">The type of the dictionary's value.</typeparam>
+            <param name="dictionary">The dictionary to print in a string format.</param>
+            <param name="sensitiveKeys">The value of these entries will be obfuscated.</param>
+            <returns>The content of the dictionary in a formatted string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.DictionaryExtensions.ToReadOnlyDictionary``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Returns a <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2" /> from the dictionary.
+            </summary>
+            <param name="dictionary">The dictionary to convert.</param>
+            <returns>A <see cref="T:System.Collections.Generic.IReadOnlyDictionary`2" />.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions">
+            <summary>
+            LINQ is not enough? This class contains even more extension methods for
+            <see cref="T:System.Collections.Generic.IEnumerable`1" />s.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.StructurallyEqualTo``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Safely compares two enumerables for structural equality.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="left">The first enumerable to compare.</param>
+            <param name="right">The second enumerable to compare.</param>
+            <returns>True if both enumerables are structurally equal.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0[])">
+            <summary>
+            Append items to an enumerable.
+            </summary>
+            <param name="enumerable">The enumerable.</param>
+            <param name="items">The items to add.</param>
+            <returns>A new enumerable now including the specified items.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.TryGetFirst``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},``0@)">
+            <summary>
+            Attempts to retrieve from an enumerable an item that satisfies a predicate.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumerable.</param>
+            <param name="predicate">The predicate to satisfy.</param>
+            <param name="value">The value if one is found.</param>
+            <returns>True if a value is found to satisfy the predicate, false otherwise.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.TryGetLastNItems``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Boolean,System.Collections.Generic.IList{``0}@)">
+            <summary>
+            Attempts to retrieve the last N items from an enumerable.
+            </summary>
+            <param name="enumerable">The enumerable from which to return items.</param>
+            <param name="count">Number of items to return.</param>
+            <param name="ordered">Whether the results need to be in the same order as in the original collection.</param>
+            <param name="subset">The last N items.</param>
+            <returns>True if the last N items have been retrieved, false otherwise.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.TakeLastNItems``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Boolean)">
+            <summary>
+            Retrieves the last N items from an enumerable.
+            </summary>
+            <param name="enumerable">The enumerable from which to return items.</param>
+            <param name="count">Number of items to return.</param>
+            <param name="ordered">Whether the results need to be in the same order as in the original collection.</param>
+            <returns>The last N items or the entire enumerable, whichever is shorter.</returns>
+            <remarks>Reverse() and Take() do not throw on an empty enumerable and Take will return the entire enumerable
+            if count is larger than the enumerable.</remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.TakeUntilIncluding``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Returns elements from a sequence up to and including the first element
+            that matches a specified predicate.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumeration of items to take elements from.</param>
+            <param name="predicate">The predicate to check elements against.</param>
+            <returns>
+            The elements from <paramref name="enumerable" /> up to and including the
+            first that matches <paramref name="predicate" />.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.Tap``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Taps a enumerable stream to intercept values passing through.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumeration of items to intercept then forward.</param>
+            <param name="action">
+            The action to perform on intercepted items. Errors will not be handled and will
+            halt enumeration. May mutate the items, but this is strongly discouraged since
+            this will be visible to the consumer of the enumeration.
+            </param>
+            <returns>The same enumeration.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.SafeAny``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Safely tests whether any elements of an enumerable satisfies a condition.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumeration of items.</param>
+            <param name="predicate">The predicate to evaluate.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.NullSafe``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Allows safe inline operations on an enumerable by returning an
+            empty <see cref="T:System.Linq.Enumerable" /> if the source enumerable is null.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.NullSafe``1(System.Collections.Generic.IAsyncEnumerable{``0})">
+            <summary>
+            Allows safe inline operations on an enumerable by returning an
+            empty <see cref="T:System.Linq.Enumerable" /> if the source enumerable is null.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.None``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns whether or not the enumerable is empty.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumeration of items.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Generalizes <see cref="M:System.String.IsNullOrEmpty(System.String)" /> to arbitrary
+            enumerables.
+            </summary>
+            <typeparam name="T">The type of the enumeration.</typeparam>
+            <param name="enumerable">The enumerable to check.</param>
+            <returns>Whether it is null or empty.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.PeekFirst``1(System.Collections.Generic.IEnumerable{``0})">
+             <summary>
+             "Peeks" the first element of an enumerable, that is evaluate the
+             first element and put it back in the stream so the sequence is not
+             altered. Evaluation of subsequent elements remain lazy. This is
+             useful in the situation where you want to handle right now side
+             effects that can only happen at the beginning of the enumeration.
+            
+             If the sequence is empty, an empty sequence is returned.
+             </summary>
+             <typeparam name="T">The type of the elements.</typeparam>
+             <param name="enumerable">The enumerable.</param>
+             <returns>
+             An enumerable with the same elements, with the first element
+             pre-evaluated.
+             </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.LazyChunk``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Splits an enumerable into multiple enumerables of a given size.
+            </summary>
+            <typeparam name="T">The type of the elements.</typeparam>
+            <param name="enumerable">The enumerable to split.</param>
+            <param name="chunkSize">The size of the chunks</param>
+            <returns>The chunked enumerable.</returns>
+            <example>
+            Chunk([1, 2, 3, 4, 5], 2) //=> [[1, 2], [3, 4], [5]]
+            </example>
+            <remarks>
+            All elements in a given chunk will be eagerly evaluated at the same
+            time (when the chunk is created). This allows the behavior to be
+            well defined of a chunk is requested while previous chunks did not
+            finish iterating.
+            
+            Unlike the Microsoft implementation of Enumerable.Chunk (.NET6+), 
+            this implementation does not preallocate the chunk in memory, instead relying on a List.
+            This is a bit slower, but it lets the caller pass chunkSize = int.MaxValue to disable the chunking.
+            Using Enumerable.Chunk is recommended.
+            </remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ToICollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns the enumerable as a collection.
+            If it is already a collection, just casts it and returns it.
+            If it is not, loads the whole enumerable in memory and returns it.
+            </summary>
+            <typeparam name="T">The type of the elements.</typeparam>
+            <param name="p_Enumerable">The enumerable to convert.</param>
+            <returns>The enumerable, loaded in memory.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Performs the specified action on each element of the IEnumerable.
+            </summary>
+            <typeparam name="T">The type of IEnumerable.</typeparam>
+            <param name="value">The IEnumerable value.</param>
+            <param name="action">The action delegate to perform on each element.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ForceEvaluation``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Force evaluation on IEnumerable.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumeration of items.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.Enumerate``1(System.Collections.Generic.IEnumerable{``0},System.Action{System.Int32,``0},System.Int32)">
+            <summary>
+            Performs the specified action on each element of the IEnumerable, with an index.
+            </summary>
+            <typeparam name="T">The type of the items in the enumeration.</typeparam>
+            <param name="enumerable">The enumeration of items.</param>
+            <param name="action">The action delegate to perform on each element.</param>
+            <param name="firstIndex">The first index returned.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.NotNull``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns not null elements in the IEnumerable.
+            </summary>
+            <typeparam name="T">The type of IEnumerable.</typeparam>
+            <param name="value">The IEnumerable value.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.Apply``1(System.Collections.Generic.IEnumerable{``0},System.Action{System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            Apply an action on the IEnumerable and returns it.
+            </summary>
+            <typeparam name="T">The type of IEnumerable.</typeparam>
+            <param name="value">The IEnumerable value.</param>
+            <param name="action">The action to apply.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.Apply``1(System.Collections.Generic.ISet{``0},System.Action{System.Collections.Generic.ISet{``0}})">
+            <summary>
+            Apply an action on the set and returns it.
+            </summary>
+            <typeparam name="T">The type of set.</typeparam>
+            <param name="value">The set value.</param>
+            <param name="action">The action to apply.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.RemoveRange``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Remove a range of keys on a dictionary.
+            </summary>
+            <typeparam name="K">The key type.</typeparam>
+            <typeparam name="V">The value type.</typeparam>
+            <param name="dictionary">The dictionary instance.</param>
+            <param name="keys">The key to remove.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ToDictionary(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Transforms a <see cref="T:System.Collections.Specialized.NameValueCollection" /> into a more manageable <see cref="T:System.Collections.Generic.IDictionary`2" />.
+            </summary>
+            <param name="collection">The <see cref="T:System.Collections.Specialized.NameValueCollection" />.</param>
+            <returns>The resulting <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ToDictionary(System.Collections.Specialized.NameValueCollection,System.StringComparer)">
+            <summary>
+            Transforms a <see cref="T:System.Collections.Specialized.NameValueCollection" /> into a more manageable <see cref="T:System.Collections.Generic.IDictionary`2" />.
+            </summary>
+            <param name="collection">The <see cref="T:System.Collections.Specialized.NameValueCollection" />.</param>
+            <param name="comparer">An <see cref="T:System.Collections.Generic.IEqualityComparer`1" /> to compare keys.</param>
+            <returns>The resulting <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ToSafeDictionary``2(System.Collections.Generic.IEnumerable{``1},System.Func{``1,``0})">
+            <summary>
+            Transforms a <see cref="T:System.Collections.Generic.IEnumerable`1" /> into an <see cref="T:System.Collections.Generic.IDictionary`2" /> using the provided
+            function to retrieve an item key.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="keySelector">The function to retrieve an item key.</param>
+            <returns>The resulting <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+            <remarks>If two items generate the same key, only the last value is kept.</remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ToSafeDictionary``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+            Transforms a <see cref="T:System.Collections.Generic.IEnumerable`1" /> into an <see cref="T:System.Collections.Generic.IDictionary`2" /> using the provided
+            function to retrieve an item key.
+            </summary>
+            <param name="items">The items.</param>
+            <param name="keySelector">The function to retrieve an item key.</param>
+            <param name="valueSelector">The function to retrieve an item value.</param>
+            <returns>The resulting <see cref="T:System.Collections.Generic.IDictionary`2" />.</returns>
+            <remarks>If two items generate the same key, only the last value is kept.</remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.Chunk``2(System.Collections.Generic.IDictionary{``0,``1},System.Int32)">
+            <summary>
+            Splits a dictionary into multiple dictionaries of a given size.
+            </summary>
+            <typeparam name="T1">The type of the key elements.</typeparam>
+            <typeparam name="T2">The type of the value elements.</typeparam>
+            <param name="dictionary">The dictionary to split.</param>
+            <param name="chunkSize">The size of the chunks</param>
+            <returns>The chunked dictionaries.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="enumerable">The enumerable to chunk.</param>
+            <param name="chunkSize">The size of the chunks.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.GetEnumerator">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.System#Collections#IEnumerable#GetEnumerator">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.ChunkedEnumerator.System#Collections#IEnumerator#Current">
+            <inheritDoc />
+        </member>
+        <member name="P:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.ChunkedEnumerator.Current">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.ChunkedEnumerator.#ctor(System.Collections.Generic.IEnumerator{`0},System.Int32)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="enumerator">The enumerator to chunk.</param>
+            <param name="chunkSize">The chunk size.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.ChunkedEnumerator.Dispose">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.ChunkedEnumerator.MoveNext">
+            <inheritDoc />
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumerableExtensions.ChunkedEnumerable`1.ChunkedEnumerator.Reset">
+            <inheritDoc />
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.EnumExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Enum"/>.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.EnumExtensions.HasAnyFlags(System.Enum,System.Enum)">
+            <summary>
+            Gets whether an Enum value has any of the specified flags set.
+            </summary>
+            <param name="value">The enum value.</param>
+            <param name="flags">The flags to check for.</param>
+            <returns>True if any of the specified flags are set.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions">
+            <summary>
+            Extensions for <see cref="T:System.Exception" />s.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.ConcatExceptionMessages(System.Exception)">
+            <summary>
+            Concatenates all exception messages into one string message. Each message are separated by a '>' character.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns>The string message that contains all exception messages.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.Rethrow(System.Exception)">
+            <summary>
+            Throws the specified exception by keeping the original stack trace.
+            It can be useful when it is necessary to rethrow the inner exception for example.
+            </summary>
+            <param name="exception">The exception to rethrow.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.IsCausedByExceptionOfType(System.Exception,System.Type)">
+            <summary>
+            Checks if the exception was caused by an exception of the specified type (the exception and its inner exceptions).
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="exceptionType">The type of the exception to check.</param>
+            <returns>
+            <c>true</c> if the exception was caused by an exception of the specified type; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.IsCausedByHttpRequestError(System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Checks if the exception was caused by <see cref="T:System.Net.WebException" /> and its response returned
+            the specified <see cref="T:System.Net.HttpStatusCode" />.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="httpStatusCode">The <see cref="T:System.Net.HttpStatusCode" /> to check.</param>
+            <returns>
+            <c>true</c> if the response of <see cref="T:System.Net.WebException" /> has returned the specified
+            <see cref="T:System.Net.HttpStatusCode" />; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.IsCausedByWebExceptionStatus(System.Exception,System.Net.WebExceptionStatus)">
+            <summary>
+            Checks if the exception was caused by a <see cref="T:System.Net.WebException" /> with the specified
+            <see cref="T:System.Net.WebExceptionStatus" />.
+            </summary>
+            <param name="exception">The exception.</param>
+            <param name="status">The <see cref="T:System.Net.WebExceptionStatus" /> to check.</param>
+            <returns>
+            <c>true</c> if the exception was caused by a <see cref="T:System.Net.WebException" /> with the specified
+            <see cref="T:System.Net.WebExceptionStatus" />; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.IsCausedByExceptionOfType``1(System.Exception,``0@)">
+            <summary>
+            Checks if an exception was caused by a specific exception type and returns it.
+            </summary>
+            <param name="exception">The exception to check.</param>
+            <param name="exceptionOfType">
+            The current exception or one of its inner exception of the specified type that caused
+            the exception.
+            </param>
+            <returns><c>true</c> if the exception was caused by an exception of the specified type, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.GetWebException(System.Exception)">
+            <summary>
+            Gets the <see cref="T:System.Net.WebException" /> from an exception if any.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns>The <see cref="T:System.Net.WebException" /> that caused this exception or null.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.ExceptionExtensions.GetExceptionOfType``1(System.Exception)">
+            <summary>
+            Gets the exception of type T from an exception if any.
+            </summary>
+            <param name="exception">The exception.</param>
+            <returns>The exception of type T that caused this exception or null.</returns>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.Strings">
+            <summary>
+            Extensions for <see cref="T:System.String" />s.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.Equal(System.String,System.String)">
+            <summary>
+            Predicate testing whether two string are equal considering case.
+            This uses ordinal comparison.
+            </summary>
+            <param name="left">The left hand side. May be null.</param>
+            <param name="right">The right hand side. May be null.</param>
+            <returns>Whether two strings are equal, considering case.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.EqualIgnoreCase(System.String,System.String)">
+            <summary>
+            Predicate testing whether two strings are equal, ignoring case.
+            Comparison is ordinal, so do not even dream of using this for
+            strings intended for humans consumption because there is a
+            special place in hell for people breaking Unicode comparisons.
+            </summary>
+            <param name="left">The left hand side. May be null.</param>
+            <param name="right">The right hand side. May be null.</param>
+            <returns>Whether two strings are equal, ignoring case.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ContainsIgnoreCase(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Predicate testing whether an enumeration of strings contains a
+            value, ignoring case. Comparison is ordinal, so do not use this for
+            strings coming from or displayed to the user.
+            </summary>
+            <param name="enumeration">The enumeration of strings.</param>
+            <param name="value">The string to search for.</param>
+            <returns>
+            Whether the enumeration of strings contains a value, ignoring case.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.NullIfEmpty(System.String)">
+            <summary>
+            Gets the string value, or null if the string is empty.
+            </summary>
+            <param name="value">The string value.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.SafeFormat(System.String,System.Object[])">
+            <summary>
+            Safely handles string formatting.
+            </summary>
+            <param name="format">The string to format.</param>
+            <param name="args">The optional string format parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.SetsEqualIgnoreCase(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Tests whether the two enumerable contains the same strings,
+            ignoring case and order.
+            </summary>
+            <param name="left">The left hand side.</param>
+            <param name="right">The right hand side.</param>
+            <returns>
+            Whether the two enumerable contains the same strings, ignoring case
+            and order.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.StartsWithIgnoreCase(System.String,System.String)">
+            <summary>
+            Predicate testing whether a string begins with a specific sequence,
+            ignoring case. Comparison is ordinal.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <param name="value">The string to search for.</param>
+            <returns>
+            Whether the string begins with the specified value, ignoring case.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.EndsWithIgnoreCase(System.String,System.String)">
+            <summary>
+            Predicate testing whether a string ends with a specific sequence,
+            ignoring case. Comparison is ordinal.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <param name="value">The string to search for.</param>
+            <returns>
+            Whether the string ends with the specified value, ignoring case.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.EnsureStartsWith(System.String,System.String)">
+            <summary>
+            Ensures the string starts with the specified value. In the case it does,
+            the string returned unchanged. In the case it doesn't a new string is
+            created by concatenating the string and the provided value.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <param name="value">The string that must be at the beginningos the string to test.</param>
+            <returns>
+            The string that starts with the specified value.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.EnsureEndsWith(System.String,System.String)">
+            <summary>
+            Ensures  the string ends with the specified value. In the case it does,
+            the string returned unchanged. In the case it doesn't a new string is
+            created by concatenating the string and the provided value.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <param name="value">The string that must be at the end of the string to test.</param>
+            <returns>
+            The string that ends with the specified value.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.EqualsIgnoreCase(System.String,System.String)">
+            <summary>
+            Compares 2 strings ignoring case.
+            </summary>
+            <param name="string1">The first string.</param>
+            <param name="string2">The second string.</param>
+            <returns><c>true</c> if the strings are equal (ignoring case), <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.GetHashCodeIgnoreCase(System.String)">
+            <summary>
+            Gets a string hash code ignoring case.
+            </summary>
+            <param name="stringValue">The string whose hash code will be returned.</param>
+            <returns>The hashcode for the string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ContainsIgnoreCase(System.String,System.String)">
+            <summary>
+            Predicate testing whether a string contains a specific sequence,
+            ignoring case. Comparison is ordinal.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <param name="value">The string to search for.</param>
+            <returns>
+            Whether the string contains the specified value, ignoring case.
+            </returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.SplitAndTrim(System.String,System.String)">
+            <summary>
+            Splits the string using the specified separator, ignoring empty entries and trimming the values.
+            </summary>
+            <param name="stringValue">The string to split.</param>
+            <param name="separator">The separator.</param>
+            <returns>A string enumerable containing the substrings in the string that are separated by the specified separator.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.TrimStart(System.String,System.String,System.StringComparison)">
+            <summary>
+            Trims the specified prefix from the start of a string.
+            </summary>
+            <param name="stringValue">The original string.</param>
+            <param name="prefix">The prefix to trim from the start of the string.</param>
+            <param name="comparisonType">The string comparison type.</param>
+            <returns>Resulting string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.TrimEnd(System.String,System.String,System.StringComparison)">
+            <summary>
+            Trims the specified suffix from the end of a string.
+            </summary>
+            <param name="stringValue">The original string.</param>
+            <param name="suffix">The suffix to trim from the end of the string.</param>
+            <param name="comparisonType">The string comparison type.</param>
+            <returns>Resulting string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.TrimEnd(System.String,System.Char,System.Int32)">
+            <summary>
+            Trim a specified character up to a maximum number of times.
+            </summary>
+            <param name="stringValue">The input string.</param>
+            <param name="maximumTrimmedChars">The maximum number of char to trim.</param>
+            <param name="trimChar">The specific char to trim.</param>
+            <returns>Resulting string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.Indent(System.String,System.String)">
+            <summary>
+            Indents each line of the input string. Empty lines stay empty.
+            </summary>
+            <param name="stringValue">The input string.</param>
+            <param name="indentation">The characters used for indentation, usually a TAB or spaces.</param>
+            <returns>Resulting string.</returns>
+            <remarks>This method will also normalize the line endings to Environment.NewLine.</remarks>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToByteArray(System.String)">
+            <summary>
+            Get UTF-8 bytes from input string.
+            </summary>
+            <param name="stringValue">The string to transform.</param>
+            <returns>The resulting byte array.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToMd5Hash(System.String)">
+            <summary>
+            Get the MD5 hash of the string.
+            </summary>
+            <param name="stringValue">The string to transform.</param>
+            <returns>The resulting hash.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToMd5Bytes(System.String)">
+            <summary>
+            Get the MD5 bytes of a string.
+            </summary>
+            <param name="stringValue">String to perform MD5 on.</param>
+            <returns>Resulting bytes.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.To32CharMd5String(System.String)">
+            <summary>
+            Get an MD5 hash string of exactly 32 characters.
+            </summary>
+            <param name="stringValue">The string to hash.</param>
+            <returns>The 32 character string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToSHA1Hash(System.String)">
+            <summary>
+            Get the SHA1 hash of the string.
+            </summary>
+            <param name="stringValue">The string to transform.</param>
+            <returns>The resulting hash.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToSHA1Bytes(System.String)">
+            <summary>
+            Compute a SHA1 of the given string and return the bytes.
+            </summary>
+            <param name="stringValue">String to SHA1.</param>
+            <returns>Resulting bytes.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToSHA256Bytes(System.String)">
+            <summary>
+            Compute a SHA256 of the given string and return the bytes.
+            </summary>
+            <param name="stringValue">String to has with SHA256.</param>
+            <returns>Resulting bytes.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ReplaceInvalidFileNameChars(System.String,System.String)">
+            <summary>
+            Replaces all characters within a string that are invalid for paths and filenames.
+            </summary>
+            <param name="stringValue">The string to check.</param>
+            <param name="replaceToken">The replacement token.</param>
+            <returns>The string with any invalid characters replaced.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.UppercaseFirst(System.String)">
+            <summary>
+            Uppercase the first letter of the given string.
+            </summary>
+            <param name="stringValue">String to uppercase the first letter.</param>
+            <returns>The string with the first letter to uppercase.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToByteArrayWithBom(System.String,System.Text.Encoding)">
+            <summary>
+            Encodes a string into a byte array.  Includes the BOM (e.g. UTF8) at the beginning.
+            </summary>
+            <param name="stringValue">String to encode in a byte array.</param>
+            <param name="encoding">The encoding to use.</param>
+            <returns>Byte array that includes the BOM at the beginning.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ToSecureString(System.String)">
+            <summary>
+            Converts a <see cref="T:System.String" /> to a <see cref="T:System.Security.SecureString" />.
+            </summary>
+            <param name="stringValue">The string to convert to a secure string.</param>
+            <returns>The converted <see cref="T:System.Security.SecureString" />.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncates a string if it exceeds the specified length.
+            </summary>
+            <param name="stringValue">The string to truncate.</param>
+            <param name="length">The desired length.</param>
+            <returns>The truncated string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.ByteArrayToHexString(System.Byte[])">
+            <summary>
+            Gets a string by converting every element of a byte
+            array into its corresponding hexadecimal char.
+            </summary>
+            <param name="bytes">The byte array to convert.</param>
+            <returns>String containing hexadecimal chars.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.CanBeConvertedToBool(System.String)">
+            <summary>
+            Check whether or not this string can be converted to a <see cref="T:System.Boolean" />.
+            </summary>
+            <remarks>
+            Example: "true", "False"
+            </remarks>
+            <param name="stringValue">The string to test.</param>
+            <returns>True if the string can be converted.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.CanBeConvertedToGuid(System.String)">
+            <summary>
+            Check whether or not this string can be converted to a <see cref="T:System.Guid" />.
+            </summary>
+            <remarks>
+            Example: "{c0d7b284-d09a-4609-9ed5-40d9e4cd1283}", "7f5f1f51f1094ab9a70c33de1a2954dc"
+            </remarks>
+            <param name="stringValue">The string to test.</param>
+            <returns>True if the string can be converted.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.CanBeConvertedToDouble(System.String)">
+            <summary>
+            Check whether or not this string can be converted to a <see cref="T:System.Double" />.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <returns>True if the string can be converted.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.CanBeConvertedToDateTime(System.String)">
+            <summary>
+            Check whether or not this string can be converted to a <see cref="T:System.DateTime" />.
+            </summary>
+            <param name="stringValue">The string to test.</param>
+            <returns>True if the string can be converted.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.JoinWithComma``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String})">
+            <summary>
+            Joins all the items into one string separated by ', '.
+            </summary>
+            <param name="items">The items to join.</param>
+            <param name="propertyExpression">The expression to apply to each item so it can be string joined.</param>
+            <returns>The resulting string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.JoinWithComma``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Joins all the items into one string separated by ', '.
+            </summary>
+            <param name="items">The items to join.</param>
+            <returns>The resulting string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.GetSubstringBetween(System.String,System.String,System.String)">
+            <summary>
+            Gets a substring content between two other substrings.
+            </summary>
+            <param name="source">The original string.</param>
+            <param name="startSubstring">The start substring.</param>
+            <param name="secondSubstring">The second substring.</param>
+            <returns>The substring content between the two strings.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.RemoveLineEndings(System.String)">
+            <summary>
+            Eliminate all line endings from a string.
+            </summary>
+            <param name="value">String value.</param>
+            <returns>String value without the line endings.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.JoinUrl(System.String,System.String[])">
+            <summary>
+            Joins a base URL component with other components.
+            </summary>
+            <param name="p_Base">The base of the desired URL.</param>
+            <param name="relatives">The relative components to add to the base.</param>
+            <returns>Joined URL.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.RemoveLastUrlSegment(System.String)">
+            <summary>
+            Takes an URL and removes the last segment in the Path part.
+            </summary>
+            <remarks>ex: https://company.sharepoint.com/something/else becomes https://company.sharepoint.com/something</remarks>
+            <param name="url">The URL.</param>
+            <returns>The URL without its last segment.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.AtoB(System.String,System.Text.Encoding)">
+            <summary>
+            Converts a string to the Base64 equivalent string.
+            </summary>
+            <param name="input">The input String to convert.</param>
+            <param name="encoding">Optional Encoding to use. If null, the default system encoding is used.</param>
+            <returns>Base64 string.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.Strings.BtoA(System.String,System.Text.Encoding)">
+            <summary>
+            Decodes a base64 string.
+            </summary>
+            <param name="input">A Base64 string.</param>
+            <param name="encoding">Optional Encoding to use. If null, the default system encoding is used.</param>
+            <returns>Output string.</returns>
+        </member>
+        <member name="F:Coveo.Connectors.Utilities.Extensions.TaskExtensions._logger">
+            The logger.
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.LogExceptions``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Create a new continuation task that will log any exceptions thrown
+            during the execution of the specified <see cref="T:System.Threading.Tasks.Task`1" />. Doing so will make
+            sure that the original task does not tear down the application when
+            it gets finalized if it failed and its exception was never observed.
+            </summary>
+            <typeparam name="T">The return type of the original task.</typeparam>
+            <param name="task">The original task which might fail.</param>
+            <returns>The original task which might fail.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.LogExceptions``1(System.Threading.Tasks.Task{``0},Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Create a new continuation task that will log to a specified <see cref="T:Coveo.Connectors.Utilities.Logging.ILogger" /> any exceptions thrown
+            during the execution of the specified <see cref="T:System.Threading.Tasks.Task`1" />. Doing so will make
+            sure that the original task does not tear down the application when
+            it gets finalized if it failed and its exception was never observed.
+            </summary>
+            <typeparam name="T">The return type of the original task.</typeparam>
+            <param name="task">The original task which might fail.</param>
+            <param name="logger">The <see cref="T:Coveo.Connectors.Utilities.Logging.ILogger" /> to log to.</param>
+            <returns>The original task which might fail.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.LogExceptions(System.Threading.Tasks.Task)">
+            <summary>
+            Create a new continuation task that will log any exceptions thrown
+            during the execution of the specified <see cref="T:System.Threading.Tasks.Task" />. Doing so will make
+            sure that the original task does not tear down the application when
+            it gets finalized if it failed and its exception was never observed.
+            </summary>
+            <param name="task">The original task which might fail.</param>
+            <returns>The original task which might fail.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.LogExceptions(System.Threading.Tasks.Task,Coveo.Connectors.Utilities.Logging.ILogger)">
+            <summary>
+            Create a new continuation task that will log to a specified <see cref="T:Coveo.Connectors.Utilities.Logging.ILogger" /> any exceptions thrown
+            during the execution of the specified <see cref="T:System.Threading.Tasks.Task" />. Doing so will make
+            sure that the original task does not tear down the application when
+            it gets finalized if it failed and its exception was never observed.
+            </summary>
+            <remarks>
+            To be extra clear: this is a safeguard and will not rethrow the exception to the calling thread.
+            It logs the exceptions if the task is in a faulted state only.
+            </remarks>
+            <param name="task">The original task which might fail.</param>
+            <param name="logger">The <see cref="T:Coveo.Connectors.Utilities.Logging.ILogger" /> to log to.</param>
+            <returns>The original task which might fail.</returns>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.WaitAndThrowOnFailure(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>
+            Waits for a task to complete or for the passed cancellation token to be signaled.
+            In the event of an exception, rethrows the original exception by parsing the <see cref="T:System.AggregateException" />.
+            </summary>
+            <remarks>
+            Like WaitAndThrowOnFailure(this Task, int, CancellationToken) make sure you understand that if the task's
+            lambda does not handle cancellation and the calling thread get OperationCancelledException after calling
+            WaitAndThrowOnFailure(CancellationToken) it is the wait operation that was cancelled, not the task.
+            </remarks>
+            <param name="task">The task to wait on.</param>
+            <param name="cancellationToken">
+            A <see cref="T:System.Threading.CancellationToken" /> to observe
+            while waiting for the task to complete.
+            </param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.WaitAndThrowOnFailure(System.Threading.Tasks.Task)">
+            <summary>
+            Waits for a task to complete and, in the event of an exception,
+            rethrows the original exception by parsing the <see cref="T:System.AggregateException" />.
+            </summary>
+            <param name="task">The task to wait on.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.WaitAndThrowOnFailure(System.Threading.Tasks.Task,System.Int32)">
+            <summary>
+            Waits for a task to complete and, in the event of an exception,
+            rethrows the original exception by parsing the <see cref="T:System.AggregateException" />.
+            </summary>
+            <param name="task">The task to wait on.</param>
+            <param name="millisecondsTimeout">The number of milliseconds to wait.</param>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TaskExtensions.WaitAndThrowOnFailure(System.Threading.Tasks.Task,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Waits the specified amount of time for a task to complete but does not cancel the task if it runs beyond that point.
+            In the event of an exception before the alloted time, rethrows the original exception by parsing the
+            <see cref="T:System.AggregateException" />.
+            In the event of an exception after the alloted time, a task continuation will log the exceptions.
+            </summary>
+            <remarks>
+            Throws a <see cref="T:System.TimeoutException" /> if specified timeout time is reached.
+            Important: It's the caller's responsability to cancel the task if it waited for more than millisecondsTimeout. Your
+            task's lambda has to throw OperationCancelledException (ideally with CancellationToken.ThrowIfCancellationRequested())
+            to ensure the task gets cancelled. If the cancellation token is signaled but your task lambda does not collaborate by
+            throwing OperationCancelledException what is actually cancelled will be the Wait not the task. The task will keep
+            running until it completes or faults. This could be bad if the task performs a long blocking call like reading from a
+            socket (WebResponse I'm looking at you) or attempts to write to a disposed stream. Access Violation
+            and coredumps aplenty!
+            See https://msdn.microsoft.com/en-us/library/dd997396(v=vs.110).aspx
+            </remarks>
+            <param name="task">The task to wait on.</param>
+            <param name="millisecondsTimeout">The number of milliseconds to wait.</param>
+            <param name="cancellationToken"> A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete. </param>
+        </member>
+        <member name="T:Coveo.Connectors.Utilities.Extensions.TypeExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Type" />.
+            </summary>
+        </member>
+        <member name="M:Coveo.Connectors.Utilities.Extensions.TypeExtensions.IsSubclassOfRawGeneric(System.Type,System.Type)">
+            <summary>
+            Gets whether a type derives from the specified generic type.
+            </summary>
+            <param name="type">To type to inspect.</param>
+            <param name="baseType">The base type class.</param>
+        </member>
+    </members>
+</doc>
